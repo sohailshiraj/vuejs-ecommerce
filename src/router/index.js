@@ -4,20 +4,37 @@ import Layout from "../components/Layout";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-
+import Shop from "@/components/Shop.vue";
+import Product from "@/components/Product.vue";
+import Cart from "@/components/Cart.vue";
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: Layout,
-    children:[
+    children: [
       {
         path: "/",
         name: "Home",
         component: Home,
-      }
-    ]
+      },
+      {
+        path: "/shop",
+        component: Shop,
+        name: "Shop",
+      },
+      {
+        path: "/product",
+        component: Product,
+        name: "Product",
+      },
+      {
+        path: "/cart",
+        component: Cart,
+        name: "Cart",
+      },
+    ],
   },
   {
     path: "/login",
