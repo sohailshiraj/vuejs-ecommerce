@@ -13,17 +13,14 @@
         >
       </v-toolbar-title>
       <v-toolbar-items>
-        <a href="/product" class="v-btn mx-4 white--text">
-          <span>Product</span>
+        <a href="/" class="v-btn mx-4 white--text">
+          <span>Home</span>
+        </a>
+        <a href="/shop" class="v-btn mx-4 white--text">
+          <span>Shop</span>
         </a>
         <a href="/product" class="v-btn mx-4 white--text">
-          <span>Product</span>
-        </a>
-        <a href="/product" class="v-btn mx-4 white--text">
-          <span>Product</span>
-        </a>
-        <a href="/product" class="v-btn mx-4 white--text">
-          <span>Product</span>
+          <span>My Account</span>
         </a>
       </v-toolbar-items>
       <v-spacer />

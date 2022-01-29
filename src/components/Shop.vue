@@ -111,6 +111,16 @@
                   </v-img>
                   <v-card-text class="text--primary">
                     <div><a href="/product" style="text-decoration: none">{{pro.name}}</a></div>
+                    <div>
+                      <v-rating
+                        v-model="pro.rating"
+                        class=""
+                        background-color="warning lighten-3"
+                        color="warning"
+                        dense
+                        readonly
+                      ></v-rating>
+                    </div>
                     <div>${{pro.price}}</div>
                   </v-card-text>
                 </v-card>
@@ -197,6 +207,7 @@
                     name:'BLACK TEE',
                     type:'Jackets',
                     price:'18.00',
+                    rating: 5,
                     src:require('../assets/img/shop/1.jpg')
                 },
                 {
@@ -204,6 +215,7 @@
                     name:'WHITE TEE',
                     type:'Polo',
                     price:'40.00',
+                    rating: 4,
                     src:require('../assets/img/shop/2.jpg')
                 },
                 {
@@ -211,6 +223,7 @@
                     name:'Zara limited...',
                     type:'Denim',
                     price:'25.00',
+                    rating: 4,
                     src:require('../assets/img/shop/3.jpg')
                 },
                 {
@@ -218,6 +231,7 @@
                     name:'SKULL TEE',
                     type:'Jackets',
                     price:'30.00',
+                    rating: 3,
                     src:require('../assets/img/shop/4.jpg')
                 },
                 {
@@ -225,6 +239,7 @@
                     name:'MANGO WINTER',
                     type:'Sweaters',
                     price:'50.00',
+                    rating: 4,
                     src:require('../assets/img/shop/5.jpg')
                 },
                 {
@@ -232,6 +247,7 @@
                     name:'SHIRT',
                     type:'Denim',
                     price:'34.00',
+                    rating: 4,
                     src:require('../assets/img/shop/6.jpg')
                 },
                 {
@@ -239,6 +255,7 @@
                     name:'TRUCKER JACKET',
                     type:'Jackets',
                     price:'38.00',
+                    rating: 4,
                     src:require('../assets/img/shop/7.jpg')
                 },
                 {
@@ -246,12 +263,14 @@
                     name:'COATS',
                     type:'Jackets',
                     price:'25.00',
+                    rating: 4,
                     src:require('../assets/img/shop/8.jpg')
                 },{
                     id:9,
                     name:'MANGO WINTER',
                     type:'Sweaters',
                     price:'50.00',
+                    rating: 4,
                     src:require('../assets/img/shop/9.jpg')
                 },
                 {
@@ -259,6 +278,7 @@
                     name:'SHIRT',
                     type:'Denim',
                     price:'34.00',
+                    rating: 4,
                     src:require('../assets/img/shop/10.jpg')
                 },
                 {
@@ -266,6 +286,7 @@
                     name:'TRUCKER JACKET',
                     type:'Jackets',
                     price:'38.00',
+                    rating: 4,
                     src:require('../assets/img/shop/11.jpg')
                 },
                 {
@@ -273,6 +294,7 @@
                     name:'COATS',
                     type:'Jackets',
                     price:'25.00',
+                    rating: 4,
                     src:require('../assets/img/shop/12.jpg')
                 }
             ]
