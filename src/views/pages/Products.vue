@@ -41,6 +41,7 @@
 
 <script>
 import { ref } from '@vue/composition-api'
+import store from '../../store/index'
 import {
   mdiChevronUp,
   mdiChevronDown,
@@ -86,44 +87,6 @@ export default {
         'Price: Low to High',
         'Price: High to Low',
     ],
-    products:[
-                {
-                    id:1,
-                    name:'Apple iPhone 11 Pro',
-                    description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                    type:'Electronics',
-                    price:'899.00',
-                    rating: 5,
-                    src:require('../../assets/images/pages/card-basic-mobile.png'),
-                },
-                {
-                    id:2,
-                    name:'Apple iPhone 11 Pro',
-                    description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                    type:'Electronics',
-                    price:'899.00',
-                    rating: 5,
-                    src:require('../../assets/images/pages/card-basic-mobile.png'),
-                },
-                {
-                    id:3,
-                    name:'Apple iPhone 11 Pro',
-                    description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                    type:'Electronics',
-                    price:'899.00',
-                    rating: 5,
-                    src:require('../../assets/images/pages/card-basic-mobile.png'),
-                },
-                {
-                    id:4,
-                    name:'Apple iPhone 11 Pro',
-                    description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                    type:'Electronics',
-                    price:'899.00',
-                    rating: 5,
-                    src:require('../../assets/images/pages/card-basic-mobile.png'),
-                }
-    ],
     quantity:[
       1,
       2,
@@ -131,7 +94,12 @@ export default {
       4,
       5
     ]
-  })
+  }),
+  computed: {
+    products () {
+      return this.$store.state.products
+    }
+  }
 }
 </script>
 
