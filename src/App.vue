@@ -1,7 +1,6 @@
 <template>
   <component :is="resolveLayout">
     <router-view></router-view>
-    <upgrade-to-pro></upgrade-to-pro>
   </component>
 </template>
 
@@ -36,3 +35,9 @@ export default {
   },
 }
 </script>
+<style>
+.v-application .white--text {
+    color: #726B83 !important;
+    caret-color: #fff !important;
+}
+</style>

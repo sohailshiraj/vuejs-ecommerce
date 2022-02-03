@@ -94,7 +94,7 @@
         :icon="icons.mdiFormSelect"
       ></nav-menu-link>
     </v-list>
-    <a
+    <!-- <a
       href="https://themeselection.com/products/materio-vuetify-vuejs-admin-template"
       target="_blank"
       rel="nofollow"
@@ -106,7 +106,7 @@
         class="upgrade-banner mx-auto"
         max-width="230"
       ></v-img>
-    </a>
+    </a> -->
   </v-navigation-drawer>
 </template>
 
