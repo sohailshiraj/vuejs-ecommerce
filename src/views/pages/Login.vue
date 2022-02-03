@@ -77,6 +77,7 @@
               block
               color="primary"
               class="mt-6"
+              v-on:click="login()"
             >
               Login
             </v-btn>
@@ -186,6 +187,19 @@ export default {
       },
     }
   },
+  methods: {
+    login() {
+      if (this.email != '' && this.password != '') {
+        if (this.email == 'admin@gmail.com' && this.password == 'admin') {
+          this.$router.push('/dashboard');
+        } else {
+          console.log("Invalid username or password");
+        }
+      } else {
+        console.log("Email or password is empty");
+      }
+    }
+  }
 }
 </script>
 
