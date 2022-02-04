@@ -26,6 +26,18 @@
 
           <v-spacer></v-spacer>
 
+          <v-toolbar-items>
+        <a href="/" class="v-btn mx-4 white--text">
+          <span>Home</span>
+        </a>
+        <a href="/products" class="v-btn mx-4 white--text">
+          <span>Products</span>
+        </a>
+        <a href="/account-settings" class="v-btn mx-4 white--text">
+          <span>My Account</span>
+        </a>
+      </v-toolbar-items>
+
           <!-- Right Content -->
           <a
             href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
@@ -46,6 +58,11 @@
               {{ icons.mdiBellOutline }}
             </v-icon>
           </v-btn>
+          <v-btn v-on="on" href="/cart" icon>
+        <v-badge content="2" value="2" overlap>
+          <v-icon>{{ icons.mdiCartVariant }}</v-icon>
+        </v-badge>
+      </v-btn>
           <app-bar-user-menu></app-bar-user-menu>
         </div>
       </div>
@@ -98,7 +115,7 @@
 
 <script>
 import { ref } from '@vue/composition-api'
-import { mdiMagnify, mdiBellOutline, mdiGithub } from '@mdi/js'
+import { mdiMagnify, mdiBellOutline, mdiGithub, mdiCartVariant } from '@mdi/js'
 import VerticalNavMenu from './components/vertical-nav-menu/VerticalNavMenu.vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import AppBarUserMenu from './components/AppBarUserMenu.vue'
@@ -120,6 +137,7 @@ export default {
         mdiMagnify,
         mdiBellOutline,
         mdiGithub,
+        mdiCartVariant
       },
     }
   },

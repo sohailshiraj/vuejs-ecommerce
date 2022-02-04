@@ -14,6 +14,16 @@ const routes = [
     component: () => import('@/views/pages/Products.vue'),
   },
   {
+    path: '/layout',
+    name: 'layout',
+    component: () => import('@/components/Layout.vue'),
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/views/pages/Cart.vue'),
+  },
+  {
     path: '/product-details/:id',
     name: 'product-details',
     component: () => import('@/views/pages/ProductDetails.vue'),
@@ -49,8 +59,8 @@ const routes = [
     component: () => import('@/views/form-layouts/FormLayouts.vue'),
   },
   {
-    path: '/pages/account-settings',
-    name: 'pages-account-settings',
+    path: '/account-settings',
+    name: 'account-settings',
     component: () => import('@/views/pages/account-settings/AccountSettings.vue'),
   },
   {

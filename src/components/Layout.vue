@@ -34,7 +34,7 @@
       </v-btn>
       <v-btn v-on="on" href="/cart" icon>
         <v-badge content="2" value="2" color="green" overlap>
-          <v-icon>mdi-cart</v-icon>
+          <v-icon>{{ icons.mdiCartVariant }}</v-icon>
         </v-badge>
       </v-btn>
     </v-app-bar>
@@ -77,6 +77,22 @@
   </v-app>
 </template>
 
+<script>
+import {
+  mdiCartVariant,
+} from '@mdi/js'
+
+export default {
+  setup() {
+    return {
+      // icons
+      icons: {
+        mdiCartVariant,
+      },
+    }
+  }
+}
+</script>
 
 
 

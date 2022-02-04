@@ -28,11 +28,15 @@
                   <v-icon>{{ icons.mdiCartPlus }}</v-icon>
                   <span class="ms-2">Add to cart</span>
                 </v-btn>
-                <v-select
-                  :items="quantity"
-                  label="Quantity"
-                  outlined
-                ></v-select>
+                <v-text-field
+                      class="pt-10"
+                      label="Outlined"
+                      style="width: 80px"
+                      single-line
+                      outlined
+                      value="2"
+                      type="number"
+                    ></v-text-field>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -104,9 +108,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.v-select {
-  height: 52px;
-}
-</style>
