@@ -9,7 +9,9 @@
         :key="pro.id" v-for="pro in products"
       >
         <v-card>
-          <v-img :src="pro.src"></v-img>
+          <router-link :to="{ name: 'product-details', params: {id: pro.id } }">
+            <v-img :src="pro.src"></v-img>
+          </router-link>
           <v-card-title>{{pro.name}}</v-card-title>
           <v-card-text>
             <p class="text--primary text-base">
