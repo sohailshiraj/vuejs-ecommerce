@@ -15,7 +15,7 @@
         class="d-flex align-center text-decoration-none"
       >
         <v-img
-          :src="require('@/assets/images/logos/logo.svg')"
+          :src="require('@/assets/logo/logo.svg')"
           max-height="30px"
           max-width="30px"
           alt="logo"
@@ -25,7 +25,7 @@
         ></v-img>
         <v-slide-x-transition>
           <h2 class="app-title text--primary">
-            MATERIO
+            VueKart
           </h2>
         </v-slide-x-transition>
       </router-link>

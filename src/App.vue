@@ -45,4 +45,11 @@ export default {
     color: #726B83 !important;
     caret-color: #000 !important;
 }
+
+.v-application .subtitle-1 {
+  font-size: 0.875rem !important;
+}
+.v-application .font-weight-thin{
+  font-weight: 200 !important;
+}
 </style>

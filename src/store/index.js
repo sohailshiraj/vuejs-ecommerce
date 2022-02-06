@@ -49,11 +49,21 @@ export default new Vuex.Store({
                 type: 'Electronics',
                 price: '885.00',
                 discount: 20,
-                rating: 5,
+                rating: 4.5,
                 reviews: [
                     {
+                        id: 1,
                         rating: 5,
-                        review: "Some review"
+                        review: "Some review",
+                        personName: "Kumavat, Sutariya",
+                        reviewDescription: "Very good product, easy to use"
+                    },
+                    {
+                        id: 2,
+                        rating: 3.5,
+                        review: "Some review",
+                        personName: "Kumavat, Sutariya",
+                        reviewDescription: "Very good product, easy to use"
                     }
                 ],
                 images: [
@@ -74,8 +84,18 @@ export default new Vuex.Store({
                 rating: 5,
                 reviews: [
                     {
+                        id: 1,
                         rating: 5,
-                        review: "Some review"
+                        review: "Some review",
+                        personName: "Kumavat, Sutariya",
+                        reviewDescription: "Very good product, easy to use"
+                    },
+                    {
+                        id: 2,
+                        rating: 3.5,
+                        review: "Some review",
+                        personName: "Kumavat, Sutariya",
+                        reviewDescription: "Very good product, easy to use"
                     }
                 ],
                 images: [
@@ -96,8 +116,18 @@ export default new Vuex.Store({
                 rating: 5,
                 reviews: [
                     {
+                        id: 1,
                         rating: 5,
-                        review: "Some review"
+                        review: "Some review",
+                        personName: "Kumavat, Sutariya",
+                        reviewDescription: "Very good product, easy to use"
+                    },
+                    {
+                        id: 2,
+                        rating: 3.5,
+                        review: "Some review",
+                        personName: "Kumavat, Sutariya",
+                        reviewDescription: "Very good product, easy to use"
                     }
                 ],
                 images: [

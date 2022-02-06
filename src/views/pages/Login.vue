@@ -9,7 +9,7 @@
             class="d-flex align-center"
           >
             <v-img
-              :src="require('@/assets/images/logos/logo.svg')"
+              :src="require('@/assets/logo/logo.svg')"
               max-height="30px"
               max-width="30px"
               alt="logo"
@@ -18,7 +18,7 @@
             ></v-img>
 
             <h2 class="text-2xl font-weight-semibold">
-              Materio
+              VueKart
             </h2>
           </router-link>
         </v-card-title>
@@ -26,10 +26,10 @@
         <!-- title -->
         <v-card-text>
           <p class="text-2xl font-weight-semibold text--primary mb-2">
-            Welcome to Materio! 👋🏻
+            Welcome to VueKart!
           </p>
           <p class="mb-2">
-            Please sign-in to your account and start the adventure
+            Please sign-in to your account and explore the world
           </p>
         </v-card-text>
 
@@ -85,35 +85,7 @@
         </v-card-text>
 
         <!-- create new account  -->
-        <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
-          <span class="me-2">
-            New on our platform?
-          </span>
-          <router-link :to="{name:'pages-register'}">
-            Create an account
-          </router-link>
-        </v-card-text>
-
-        <!-- divider -->
-        <v-card-text class="d-flex align-center mt-2">
-          <v-divider></v-divider>
-          <span class="mx-5">or</span>
-          <v-divider></v-divider>
-        </v-card-text>
-
-        <!-- social links -->
-        <v-card-actions class="d-flex justify-center">
-          <v-btn
-            v-for="link in socialLink"
-            :key="link.icon"
-            icon
-            class="ms-1"
-          >
-            <v-icon :color="$vuetify.theme.dark ? link.colorInDark : link.color">
-              {{ link.icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-actions>
+        
       </v-card>
     </div>
 
@@ -191,7 +163,7 @@ export default {
     login() {
       if (this.email != '' && this.password != '') {
         if (this.email == 'admin@gmail.com' && this.password == 'admin') {
-          this.$router.push('/dashboard');
+          this.$router.push('/');
         } else {
           console.log("Invalid username or password");
         }

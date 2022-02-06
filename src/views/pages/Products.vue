@@ -1,46 +1,23 @@
 <template>
   <div>
     <v-row>
-      <v-col
-        lg="4"
-        sm="6"
-        cols="12"
-        class="align-self-start"
-        :key="pro.id" v-for="pro in products"
-      >
+      <v-col lg="4" sm="6" cols="12" class="align-self-start" :key="pro.id" v-for="pro in products">
         <v-card>
-          <router-link :to="{ name: 'product-details', params: {id: pro.id } }">
+          <router-link :to="{ name: 'product-details', params: { id: pro.id } }">
             <v-img :src="pro.src"></v-img>
+            <v-btn text color="primary" dark style="position: absolute; top: 0; right: 0">
+              <v-icon>{{ icons.mdiAlertCircleOutline }}</v-icon>
+            </v-btn>
           </router-link>
-          <v-card-title>{{pro.name}}</v-card-title>
+          <v-card-title>{{ pro.name }}</v-card-title>
           <v-card-text>
-            <p class="text--primary text-base">
-              ${{pro.price}}
+            <p class="text--primary text-base">${{getDiscountedValue(pro.price, pro.discount)}}
+               <del style="" class="subtitle-1 font-weight-thin">${{ pro.price }}</del>
             </p>
-            {{pro.description}}
+            {{ pro.description }}
           </v-card-text>
-          <v-card-actions class="d-flex justify-space-between dense">
-            <v-btn
-                  text
-                  color="primary"
-                  dark
-                >
-                  <v-icon>{{ icons.mdiCartPlus }}</v-icon>
-                  <span class="ms-2">Add to cart</span>
-                </v-btn>
-                <v-text-field
-                      class="pt-10"
-                      label="Outlined"
-                      style="width: 80px"
-                      single-line
-                      outlined
-                      value="2"
-                      type="number"
-                    ></v-text-field>
-          </v-card-actions>
         </v-card>
       </v-col>
-        
     </v-row>
   </div>
 </template>
@@ -58,6 +35,10 @@ import {
   mdiAccountOutline,
   mdiTrendingUp,
   mdiHelpCircleOutline,
+  mdiEyeOffOutline,
+  mdiEyeCircleOutline,
+  mdiEye,
+  mdiAlertCircleOutline 
 } from '@mdi/js'
 
 export default {
@@ -80,30 +61,27 @@ export default {
         mdiAccountOutline,
         mdiTrendingUp,
         mdiHelpCircleOutline,
+        mdiEyeOffOutline,
+        mdiEyeCircleOutline,
+        mdiEye,
+        mdiAlertCircleOutline 
       },
     }
   },
   data: () => ({
     range: [0, 10000],
-    select:'Popularity',
-    options: [
-        'Default',
-        'Popularity',
-        'Relevance',
-        'Price: Low to High',
-        'Price: High to Low',
-    ],
-    quantity:[
-      1,
-      2,
-      3,
-      4,
-      5
-    ]
+    select: 'Popularity',
+    options: ['Default', 'Popularity', 'Relevance', 'Price: Low to High', 'Price: High to Low'],
+    quantity: [1, 2, 3, 4, 5],
   }),
   computed: {
-    products () {
+    products() {
       return this.$store.state.products
+    },
+  },
+  methods: {
+    getDiscountedValue(price, discount){
+      return price - ( price/100 * discount);
     }
   }
 }

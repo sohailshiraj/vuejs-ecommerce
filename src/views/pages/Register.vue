@@ -9,7 +9,7 @@
             class="d-flex align-center"
           >
             <v-img
-              :src="require('@/assets/images/logos/logo.svg')"
+              :src="require('@/assets/logo/logo.svg')"
               max-height="30px"
               max-width="30px"
               alt="logo"
@@ -18,7 +18,7 @@
             ></v-img>
 
             <h2 class="text-2xl font-weight-semibold">
-              Materio
+              VueKart
             </h2>
           </router-link>
         </v-card-title>
