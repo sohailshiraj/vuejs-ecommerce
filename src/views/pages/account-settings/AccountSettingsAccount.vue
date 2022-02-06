@@ -14,7 +14,7 @@
 
       <!-- upload photo -->
       <div>
-        <v-btn
+        <!-- <v-btn
           color="primary"
           class="me-3 mt-5"
           @click="$refs.refInputEl.click()"
@@ -23,9 +23,9 @@
             {{ icons.mdiCloudUploadOutline }}
           </v-icon>
           <span class="d-none d-sm-block">Upload new photo</span>
-        </v-btn>
+        </v-btn> -->
 
-        <input
+        <!-- <input
           ref="refInputEl"
           type="file"
           accept=".jpeg,.png,.jpg,GIF"
@@ -41,7 +41,7 @@
         </v-btn>
         <p class="text-sm mt-5">
           Allowed JPG, GIF or PNG. Max size of 800K
-        </p>
+        </p> -->
       </div>
     </v-card-text>
 

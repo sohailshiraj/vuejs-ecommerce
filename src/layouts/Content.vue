@@ -1,55 +1,74 @@
 <template>
   <v-app>
-    <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu>
-
+    <!-- <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu> -->
+    <v-img
+          :src="require('@/assets/images/logos/logo.svg')"
+          max-height="30px"
+          max-width="30px"
+          alt="logo"
+          contain
+          eager
+          class="app-logo me-3"
+        ></v-img>
+        <h2 class="app-title text--primary">
+          MATERIO
+        </h2>
+    <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
+      <router-link
+        to="/"
+        class="d-flex align-center text-decoration-none"
+      >
+        <v-img
+          :src="require('@/assets/images/logos/logo.svg')"
+          max-height="30px"
+          max-width="30px"
+          alt="logo"
+          contain
+          eager
+          class="app-logo me-3"
+        ></v-img>
+        <h2 class="app-title text--primary">
+          MATERIO
+        </h2>
+      </router-link>
+    </div>
     <v-app-bar
       app
       flat
-      absolute
-      color="transparent"
+      :color="!$vuetify.theme.dark? 'white' : '#28243D'"
     >
       <div class="boxed-container w-full">
-        <div class="d-flex align-center mx-6">
+        <div class="d-flex align-center mx-12">
           <!-- Left Content -->
           <v-app-bar-nav-icon
             class="d-block d-lg-none me-2"
             @click="isDrawerOpen = !isDrawerOpen"
           ></v-app-bar-nav-icon>
-          <v-text-field
+          <!-- <v-text-field
             rounded
             dense
             outlined
             :prepend-inner-icon="icons.mdiMagnify"
             class="app-bar-search flex-grow-0"
             hide-details
-          ></v-text-field>
+          ></v-text-field> -->
 
           <v-spacer></v-spacer>
 
           <v-toolbar-items>
-        <a href="/" class="v-btn mx-4 white--text">
+        <!-- <a href="/" :class="$vuetify.theme.dark? 'v-btn mx-4 white--text': 'v-btn mx-4 white--text--dark'">
           <span>Home</span>
-        </a>
-        <a href="/products" class="v-btn mx-4 white--text">
+        </a> -->
+        <a href="/" :class="$vuetify.theme.dark? 'v-btn mx-4 white--text': 'v-btn mx-4 white--text--dark'">
           <span>Products</span>
         </a>
         <a href="/account-settings" class="v-btn mx-4 white--text">
           <span>My Account</span>
         </a>
       </v-toolbar-items>
-
-          <!-- Right Content -->
-          <a
-            href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free"
-            target="_blank"
-            rel="nofollow"
-          >
-            <v-icon class="ms-6 me-4">
-              {{ icons.mdiGithub }}
-            </v-icon>
-          </a>
+<v-spacer></v-spacer>
           <theme-switcher></theme-switcher>
-          <v-btn
+          <!-- <v-btn
             icon
             small
             class="ms-3"
@@ -57,11 +76,11 @@
             <v-icon>
               {{ icons.mdiBellOutline }}
             </v-icon>
-          </v-btn>
+          </v-btn> -->
           <v-btn v-on="on" href="/cart" icon>
-        <v-badge content="2" value="2" overlap>
-          <v-icon>{{ icons.mdiCartVariant }}</v-icon>
-        </v-badge>
+          <v-badge content="2" value="2" overlap>
+            <v-icon>{{ icons.mdiCartVariant }}</v-icon>
+          </v-badge>
       </v-btn>
           <app-bar-user-menu></app-bar-user-menu>
         </div>

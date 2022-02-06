@@ -40,4 +40,9 @@ export default {
     color: #726B83 !important;
     caret-color: #fff !important;
 }
+
+.v-application .white--text--dark {
+    color: #726B83 !important;
+    caret-color: #000 !important;
+}
 </style>

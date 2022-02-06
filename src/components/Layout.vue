@@ -8,8 +8,8 @@
       <!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
 
       <v-toolbar-title style="width: 350px">
-        <a href="/" class="white--text" style="text-decoration: none"
-          ><v-icon>mdi-truck</v-icon>&nbsp;ShipIT</a
+        <a href="/" class="white--text"
+          ><v-icon>mdi-truck</v-icon>&nbsp;VueKart</a
         >
       </v-toolbar-title>
       <v-toolbar-items>
