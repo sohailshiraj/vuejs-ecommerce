@@ -35,10 +35,9 @@
               <v-radio label="XL" value="xl"></v-radio>
             </v-radio-group>
             <p class="title">ITEMS</p>
-            <v-text-field outlined style="width: 100px" :value="1" dense></v-text-field>
 
-            <v-btn class="white--text" outlined tile dense><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
-            <v-btn class="ml-4" outlined tile>ADD TO WISHLIST</v-btn>
+            <v-text-field outlined style="width: 100px" :value="1" v-model="quantity" dense></v-text-field>
+            <v-btn class="primary white--text" outlined tile dense @click="addToCart(id, quantity)"><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
           </div>
         </div>
       </div>
@@ -149,6 +148,13 @@ export default {
     },
     getReviewsCount(product){
       return product.reviews.length
+    },
+    addToCart(productId, quantity) {
+      var item = {
+          productId: productId,
+          quantity: quantity
+      };
+      this.$store.commit('addToCart', item);
     }
   }
 }

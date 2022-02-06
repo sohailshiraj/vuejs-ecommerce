@@ -7,10 +7,7 @@
       :color="!$vuetify.theme.dark? 'white' : '#28243D'"
     >
     <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
-      <router-link
-        to="/"
-        class="d-flex align-center text-decoration-none"
-      >
+      <router-link to="/" class="d-flex align-center text-decoration-none">
         <v-img
           :src="require('@/assets/logo/logo.svg')"
           max-height="30px"
@@ -27,34 +24,19 @@
     </div>
       <div class="boxed-container w-full">
         <div class="d-flex align-center mx-12">
-          <!-- Left Content -->
-          <v-app-bar-nav-icon
-            class="d-block d-lg-none me-2"
-            @click="isDrawerOpen = !isDrawerOpen"
-          ></v-app-bar-nav-icon>
-          <!-- <v-text-field
-            rounded
-            dense
-            outlined
-            :prepend-inner-icon="icons.mdiMagnify"
-            class="app-bar-search flex-grow-0"
-            hide-details
-          ></v-text-field> -->
+          <v-app-bar-nav-icon class="d-block d-lg-none me-2" @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
 
           <v-spacer></v-spacer>
 
           <v-toolbar-items>
-        <!-- <a href="/" :class="$vuetify.theme.dark? 'v-btn mx-4 white--text': 'v-btn mx-4 white--text--dark'">
-          <span>Home</span>
-        </a> -->
-        <a href="/" :class="$vuetify.theme.dark? 'v-btn mx-4 white--text': 'v-btn mx-4 white--text--dark'">
-          <span>Products</span>
-        </a>
-        <a href="/account-settings" class="v-btn mx-4 white--text">
-          <span>My Account</span>
-        </a>
-      </v-toolbar-items>
-<v-spacer></v-spacer>
+            <router-link to="/" :class="$vuetify.theme.dark ? 'v-btn mx-4 white--text' : 'v-btn mx-4 white--text--dark'">
+              <span>Products</span>
+            </router-link>
+            <router-link to="/account-settings" class="v-btn mx-4 white--text">
+              <span>My Account</span>
+            </router-link>
+          </v-toolbar-items>
+          <v-spacer></v-spacer>
           <theme-switcher></theme-switcher>
           <!-- <v-btn
             icon
@@ -65,11 +47,11 @@
               {{ icons.mdiBellOutline }}
             </v-icon>
           </v-btn> -->
-          <v-btn v-on="on" href="/cart" icon>
-          <v-badge content="2" value="2" overlap>
-            <v-icon>{{ icons.mdiCartVariant }}</v-icon>
-          </v-badge>
-      </v-btn>
+          <router-link tag="button" v-on="on" to="/cart" icon>
+            <v-badge :content="cart" :value="cart" overlap>
+              <v-icon>{{ icons.mdiCartVariant }}</v-icon>
+            </v-badge>
+          </router-link>
           <app-bar-user-menu></app-bar-user-menu>
         </div>
       </div>
@@ -81,38 +63,29 @@
       </div>
     </v-main>
 
-    <v-footer
-      app
-      inset
-      color="transparent"
-      absolute
-      height="56"
-      class="px-0"
-    >
+    <v-footer app inset color="transparent" absolute height="56" class="px-0">
       <div class="boxed-container w-full">
         <div class="mx-6 d-flex justify-space-between">
           <span>
-            &copy; 2021 <a
-              href="https://themeselection.com"
-              class="text-decoration-none"
-              target="_blank"
-            >ThemeSelection</a></span>
+            &copy; 2021
+            <a href="https://themeselection.com" class="text-decoration-none" target="_blank">ThemeSelection</a></span
+          >
           <span class="d-sm-inline d-none">
             <a
               href="https://themeselection.com/products/category/download-free-admin-templates/"
               target="_blank"
               class="me-6 text--secondary text-decoration-none"
-            >Freebies</a>
-            <a
-              href="https://themeselection.com/blog/"
-              target="_blank"
-              class="me-6 text--secondary text-decoration-none"
-            >Blog</a>
+              >Freebies</a
+            >
+            <a href="https://themeselection.com/blog/" target="_blank" class="me-6 text--secondary text-decoration-none"
+              >Blog</a
+            >
             <a
               href="https://github.com/themeselection/materio-vuetify-vuejs-admin-template-free/blob/main/LICENSE"
               target="_blank"
               class="text--secondary text-decoration-none"
-            >MIT Licence</a>
+              >MIT Licence</a
+            >
           </span>
         </div>
       </div>
@@ -144,10 +117,15 @@ export default {
         mdiMagnify,
         mdiBellOutline,
         mdiGithub,
-        mdiCartVariant
+        mdiCartVariant,
       },
     }
   },
+  computed: {
+    cart() {
+      return this.$store.state.session.cart.length;
+    }
+  }
 }
 </script>
 

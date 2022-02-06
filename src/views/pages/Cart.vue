@@ -16,9 +16,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr :key="item.productId" v-for="item in cart">
                   <td>
-                    <v-list-item key="1">
+                    <v-list-item>
                       <v-list-item-avatar>
                         <v-img
                           :src="require('../../assets/img/shop/1.jpg')"
@@ -26,54 +26,14 @@
                       </v-list-item-avatar>
 
                       <v-list-item-content>
-                        <v-list-item-title>Item 1</v-list-item-title>
-                        <v-list-item-subtitle>Lorem Ipsum</v-list-item-subtitle>
+                        <v-list-item-title>{{ getProduct(item.productId).name }}</v-list-item-title>
+                        <!-- <v-list-item-subtitle>{{ getProduct(item.productId).description }}</v-list-item-subtitle> -->
                       </v-list-item-content>
                     </v-list-item>
                   </td>
-                  <td>$40.00</td>
-                  <td>
-                    <v-text-field
-                      class="pt-10"
-                      label="Outlined"
-                      style="width: 80px"
-                      single-line
-                      outlined
-                      value="2"
-                      type="number"
-                    ></v-text-field>
-                  </td>
-                  <td>$80.00</td>
-                  <td><a>X</a></td>
-                </tr>
-                <tr>
-                  <td>
-                    <v-list-item key="1">
-                      <v-list-item-avatar>
-                        <v-img
-                          :src="require('../../assets/img/shop/2.jpg')"
-                        ></v-img>
-                      </v-list-item-avatar>
-
-                      <v-list-item-content>
-                        <v-list-item-title>Item 2</v-list-item-title>
-                        <v-list-item-subtitle>Lorem Ipsum</v-list-item-subtitle>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </td>
-                  <td>$40.00</td>
-                  <td>
-                    <v-text-field
-                      class="pt-10"
-                      label="Outlined"
-                      style="width: 80px"
-                      single-line
-                      outlined
-                      value="2"
-                      type="number"
-                    ></v-text-field>
-                  </td>
-                  <td>$80.00</td>
+                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
                   <td><a>X</a></td>
                 </tr>
               </tbody>
@@ -118,3 +78,24 @@
     </v-container>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    cart() {
+      return this.$store.state.session.cart;
+    },
+    products() {
+      return this.$store.state.products;
+    }
+  },
+  methods: {
+    getProduct(id) {
+      return this.products.filter((product) => product.id == id)[0];
+    },
+    getDiscountedValue(price, discount){
+      return price - ( price/100 * discount);
+    },
+  }
+}
+</script>

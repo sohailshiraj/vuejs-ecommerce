@@ -139,7 +139,11 @@ export default new Vuex.Store({
             },
         ],
     },
-    mutations: {},
+    mutations: {
+        addToCart(state, item) {
+            state.session.cart.push(item);
+        }
+    },
     actions: {},
     modules: {},
 })
