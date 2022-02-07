@@ -25,6 +25,7 @@ export default new Vuex.Store({
         },
         purchases: [],
         products: [
+
           {
             id: 6,
             name: 'iPhone 7',
