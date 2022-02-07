@@ -179,7 +179,6 @@ export default new Vuex.Store({
                 reviewDescription: review.review
             }
             state.products[productIndex].reviews.push(newReview);
-            console.log(JSON.stringify(state.products[productIndex].reviews));
         }
     },
     actions: {},
