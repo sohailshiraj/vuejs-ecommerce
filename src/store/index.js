@@ -57,6 +57,7 @@ export default new Vuex.Store({
             ],
             src: require('../assets/img/shop/6.jpg')
         },
+        
         {
           id: 5,
           name: 'iPhone 8',
