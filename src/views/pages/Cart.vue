@@ -30,9 +30,9 @@
                       </v-list-item-content>
                     </v-list-item>
                   </td>
-                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) }}</td>
+                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount).toFixed(0) }}</td>
                   <td>{{ item.quantity }}</td>
-                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
+                  <td>${{ (getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity).toFixed(2) }}</td>
                   <td><a @click="removeFromCart(item.productId, index)">X</a></td>
                 </tr>
               </tbody>
@@ -53,7 +53,7 @@
               <tbody>
                 <tr>
                   <td>Order Subtotal</td>
-                  <td class="text-right" style="width: 50px">${{getSubTotal()}}</td>
+                  <td class="text-right" style="width: 50px">${{getSubTotal().toFixed(2)}}</td>
                 </tr>
                 <tr>
                   <td>Shipping Charges</td>
@@ -61,11 +61,11 @@
                 </tr>
                 <tr>
                   <td>Tax</td>
-                  <td class="text-right" style="width: 50px">${{calculateTax()}}</td>
+                  <td class="text-right" style="width: 50px">${{calculateTax().toFixed(2)}}</td>
                 </tr>
                 <tr>
                   <td>Total</td>
-                  <td class="text-right" style="width: 50px"><b>${{calculateTotal()}}</b></td>
+                  <td class="text-right" style="width: 50px"><b>${{calculateTotal().toFixed(2)}}</b></td>
                 </tr>
               </tbody>
             </template>
@@ -126,7 +126,7 @@ export default {
       });
       var purchaseItem = {
         items: this.cart,
-        total: this.calculateTotal(),
+        total: this.calculateTotal().toFixed(2),
         id: this.purchases.length + 1,
         userId: this.userId
       }
