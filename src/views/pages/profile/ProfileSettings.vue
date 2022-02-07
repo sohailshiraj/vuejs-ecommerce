@@ -26,13 +26,8 @@
       </v-tab-item>
 
       <v-tab-item>
-        <profile-settings-security></profile-settings-security>
+        <my-purchases></my-purchases>
       </v-tab-item>
-
-      <!-- <v-tab-item>
-        <profile-settings-account :account-data="accountSettingData"></profile-settings-account>
-        <account-settings-info :information-data="accountSettingData.information"></account-settings-info>
-      </v-tab-item> -->
     </v-tabs-items>
   </v-card>
 </template>
@@ -43,14 +38,12 @@ import { ref } from '@vue/composition-api'
 
 // demos
 import ProfileSettingsAccount from './ProfileSettingsAccount.vue'
-import ProfileSettingsSecurity from './ProfileSettingsSecurity.vue'
-import ProfileSettingsInfo from './ProfileSettingsInfo.vue'
+import MyPurchases from './MyPurchases.vue'
 
 export default {
   components: {
     ProfileSettingsAccount,
-    ProfileSettingsSecurity,
-    ProfileSettingsInfo,
+    MyPurchases,
   },
   setup() {
     const tab = ref('')

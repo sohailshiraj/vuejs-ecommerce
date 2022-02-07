@@ -69,6 +69,22 @@
                       <v-list-item-subtitle v-html="item.reviewDescription"></v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
+
+                  <v-list-item v-if="havePurchasedProduct(id)">
+                    <v-list-item-content>
+                      <v-text-field outlined style="width: 100px" :value="1" v-model="review" dense></v-text-field>
+                      <v-rating
+                        v-model="newRating"
+                        class=""
+                        background-color="warning lighten-3"
+                        color="warning"
+                        value="0"
+                        dense
+                      ></v-rating>
+                      <v-btn class="white--text" outlined tile dense @click="addReview(id, newRating, review)"><v-icon>mdi-cart</v-icon>Post review</v-btn>
+                    </v-list-item-content>
+                  </v-list-item>
+
                 </v-list-item-group>
               </v-list>
             </v-tab-item>
@@ -82,63 +98,14 @@
 export default {
   data: () => ({
     rating: 4.5,
-    breadcrums: [
-      {
-        text: 'Home',
-        disabled: false,
-        href: 'breadcrumbs_home',
-      },
-      {
-        text: 'Clothing',
-        disabled: false,
-        href: 'breadcrumbs_clothing',
-      },
-      {
-        text: 'T-Shirts',
-        disabled: true,
-        href: 'breadcrumbs_shirts',
-      },
-    ],
-    item: 5,
-    items: [
-      {
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-        title: 'Lorem ipsum dolor?',
-        subtitle:
-          "<span class='text--primary'>Ali Connors</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Tincidunt arcu non sodales neque sodales ut etiam. Lectus arcu bibendum at varius vel pharetra. Morbi tristique senectus et netus et malesuada.\n" +
-          '\n',
-      },
-      {
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-        title: 'Lorem ipsum dolor <span class="grey--text text--lighten-1">4</span>',
-        subtitle:
-          "<span class='text--primary'>to Alex, Scott, Jennifer</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
-      },
-      {
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-        title: 'Lorem ipsum dolor',
-        subtitle:
-          "<span class='text--primary'>Sandra Adams</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      },
-      {
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-        title: 'Lorem ipsum dolor',
-        subtitle: '',
-      },
-      {
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg',
-        title: 'Lorem ipsum dolor',
-        subtitle:
-          "<span class='text--primary'>Britta Holt</span> &mdash; Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      },
-    ],
+    item: 5
   }),
   created() {
     this.id = this.$route.params.id
   },
   computed: {
     product() {
-      return this.$store.state.products[this.id]
+      return this.$store.state.products[this.id -1]
     },
   },
   methods: {
@@ -154,6 +121,36 @@ export default {
           quantity: quantity
       };
       this.$store.commit('addToCart', item);
+    },
+    addReview(id, rating, review) {
+      let newReview = {
+        id: id,
+        rating: rating,
+        review: review,
+        personName: this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0].name,
+        reviewDescription: review
+      }; 
+      this.product.reviews.push(newReview);
+      // this.$store.commit('addReview', newReview);
+      this.clearFields();
+    },
+    clearFields(){
+      this.newRating = 0
+      this.review = '';
+    },
+    havePurchasedProduct(id) {
+      let currUserId = this.$store.state.session.userId;
+      var flag = false;
+
+      this.$store.state.purchases.forEach(element => {
+        if (element.userId = currUserId) {
+          if (element.items.filter((item) => item.productId == id).length > 0) {
+            flag = true;
+          }
+        }
+      });
+
+      return flag;
     }
   }
 }

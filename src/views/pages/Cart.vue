@@ -16,7 +16,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr :key="item.productId" v-for="item in cart">
+                <tr :key="item.productId" v-for="(item, index) in cart">
                   <td>
                     <v-list-item>
                       <v-list-item-avatar>
@@ -30,10 +30,15 @@
                       </v-list-item-content>
                     </v-list-item>
                   </td>
-                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) }}</td>
+                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount).toFixed(0) }}</td>
                   <td>{{ item.quantity }}</td>
+<<<<<<< HEAD
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
                   <td><a>X</a></td>
+=======
+                  <td>${{ (getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity).toFixed(2) }}</td>
+                  <td><a @click="removeFromCart(item.productId, index)">X</a></td>
+>>>>>>> b1991136da5e54ce2457713cb9ea10bb475e55d9
                 </tr>
               </tbody>
             </template>
@@ -53,7 +58,7 @@
               <tbody>
                 <tr>
                   <td>Order Subtotal</td>
-                  <td class="text-right" style="width: 50px">${{getSubTotal()}}</td>
+                  <td class="text-right" style="width: 50px">${{getSubTotal().toFixed(2)}}</td>
                 </tr>
                 <tr>
                   <td>Shipping Charges</td>
@@ -61,11 +66,11 @@
                 </tr>
                 <tr>
                   <td>Tax</td>
-                  <td class="text-right" style="width: 50px">${{calculateTax()}}</td>
+                  <td class="text-right" style="width: 50px">${{calculateTax().toFixed(2)}}</td>
                 </tr>
                 <tr>
                   <td>Total</td>
-                  <td class="text-right" style="width: 50px"><b>${{calculateTotal()}}</b></td>
+                  <td class="text-right" style="width: 50px"><b>${{calculateTotal().toFixed(2)}}</b></td>
                 </tr>
               </tbody>
             </template>
@@ -92,7 +97,6 @@ export default {
       return this.$store.state.products;
     },
     purchases() {
-      console.log(this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId));
       return this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId);
     },
     userId() {
@@ -127,7 +131,7 @@ export default {
       });
       var purchaseItem = {
         items: this.cart,
-        total: this.calculateTotal(),
+        total: this.calculateTotal().toFixed(2),
         id: this.purchases.length + 1,
         userId: this.userId
       }
@@ -136,9 +140,14 @@ export default {
       this.$router.push('/confirmation');
     },
     clearCart(){
-          this.$store.commit('clearCart');
+      this.$store.commit('clearCart');
+    },
+    removeFromCart(productId, index) {
+      if(this.cart){
+        this.cart.splice(index, 1);
+      }
+      // this.$store.commit('removeFromCart', id);
     }
-
   }
 }
 </script>
