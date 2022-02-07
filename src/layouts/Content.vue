@@ -18,7 +18,7 @@
             eager
             class="app-logo me-3"
           ></v-img>
-          <h2 class="app-title text--primary">VueKart</h2>
+          <h2 class="app-title text--primary">iCart</h2>
         </router-link>
       </div>
       <div class="boxed-container" style="margin: 0px">
@@ -59,8 +59,8 @@
       <div class="boxed-container w-full">
         <div class="mx-6 d-flex justify-space-between">
           <span>
-            &copy; 2
-            <a target="_blank">VueKart</a></span
+            &copy; Conestoga college
+            <a target="_blank">iCart</a></span
           >
         </div>
       </div>
