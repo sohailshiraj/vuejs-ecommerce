@@ -1,24 +1,18 @@
 <template>
   <v-app>
     <!-- <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu> -->
-    <v-app-bar
-      app
-      flat
-      :color="!$vuetify.theme.dark ? 'white' : '#28243D'"
-    >
+    <v-app-bar app flat:color="!$vuetify.theme.dark ? 'white' : '#28243D'">
     <div style="display: flex; height: 64px; justify-content: space-between !important; width: 100%;">
       <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
         <router-link to="/" class="d-flex align-center text-decoration-none">
           <v-img
-            :src="$vuetify.theme.dark?  require('@/assets/logo/logo-white.svg'): require('@/assets/logo/logo.svg')"
-            max-height="30px"
-            max-width="30px"
+            :src="$vuetify.theme.dark?  require('@/assets/logo/logo-white.svg'): require('@/assets/logo/logo.svg')" max-height="30px" max-width="30px"
             alt="logo"
             contain
             eager
             class="app-logo me-3"
           ></v-img>
-          <h2 class="app-title text--primary">VueKart</h2>
+          <h2 class="app-title text--primary">iCart</h2>
         </router-link>
       </div>
       <div class="boxed-container" style="margin: 0px">
@@ -28,15 +22,7 @@
           <v-spacer></v-spacer>
 
           <theme-switcher style="padding: 20px"></theme-switcher>
-          <!-- <v-btn
-            icon
-            small
-            class="ms-3"
-          >
-            <v-icon>
-              {{ icons.mdiBellOutline }}
-            </v-icon>
-          </v-btn> -->
+
           <router-link tag="button" v-on="on" to="/cart" icon style="padding: 20px">
             <v-badge :content="cart" :value="cart" overlap>
               <v-icon>{{ icons.mdiCartVariant }}</v-icon>
@@ -59,8 +45,8 @@
       <div class="boxed-container w-full">
         <div class="mx-6 d-flex justify-space-between">
           <span>
-            &copy; 2
-            <a target="_blank">VueKart</a></span
+            &copy; Conestoga college
+            <a target="_blank">iCart</a></span
           >
         </div>
       </div>

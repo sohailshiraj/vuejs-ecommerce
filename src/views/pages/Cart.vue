@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <p class="display-3 font-weight-light text-center pa-4">SHOPPING CART</p>
+      <p class="display-3 font-weight-light text-center pa-4">Checkout Cart</p>
       <v-row>
         <v-col :cols="12" md="9" sm="12">
           <v-simple-table  v-if="cart.length > 0">
@@ -27,7 +27,6 @@
 
                       <v-list-item-content>
                         <v-list-item-title>{{ getProduct(item.productId).name }}</v-list-item-title>
-                        <!-- <v-list-item-subtitle>{{ getProduct(item.productId).description }}</v-list-item-subtitle> -->
                       </v-list-item-content>
                     </v-list-item>
                   </td>
@@ -35,6 +34,10 @@
                   <td>{{ item.quantity }}</td>
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
                   <td><a>X</a></td>
+
+
+
+
                 </tr>
               </tbody>
             </template>
@@ -135,7 +138,11 @@ export default {
       this.$store.commit('addPurchaseItem', purchaseItem);
       this.$store.commit('clearCart');
       this.$router.push('/confirmation');
+    },
+    clearCart(){
+          this.$store.commit('clearCart');
     }
+
   }
 }
 </script>
