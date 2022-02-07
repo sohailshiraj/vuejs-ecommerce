@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <p class="display-3 font-weight-light text-center pa-4">SHOPPING CART</p>
+      <p class="display-3 font-weight-light text-center pa-4">Checkout Cart</p>
       <v-row>
         <v-col :cols="12" md="9" sm="12">
           <v-simple-table  v-if="cart.length > 0">
@@ -27,7 +27,6 @@
 
                       <v-list-item-content>
                         <v-list-item-title>{{ getProduct(item.productId).name }}</v-list-item-title>
-                        <!-- <v-list-item-subtitle>{{ getProduct(item.productId).description }}</v-list-item-subtitle> -->
                       </v-list-item-content>
                     </v-list-item>
                   </td>
