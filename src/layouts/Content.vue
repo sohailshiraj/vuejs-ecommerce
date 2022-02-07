@@ -4,40 +4,30 @@
     <v-app-bar
       app
       flat
-      :color="!$vuetify.theme.dark? 'white' : '#28243D'"
+      :color="!$vuetify.theme.dark ? 'white' : '#28243D'"
     >
-    <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
-      <router-link to="/" class="d-flex align-center text-decoration-none">
-        <v-img
-          :src="require('@/assets/logo/logo.svg')"
-          max-height="30px"
-          max-width="30px"
-          alt="logo"
-          contain
-          eager
-          class="app-logo me-3"
-        ></v-img>
-        <h2 class="app-title text--primary">
-          VueKart
-        </h2>
-      </router-link>
-    </div>
-      <div class="boxed-container w-full">
+    <div style="display: flex; height: 64px; justify-content: space-between !important; width: 100%;">
+      <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
+        <router-link to="/" class="d-flex align-center text-decoration-none">
+          <v-img
+            :src="$vuetify.theme.dark?  require('@/assets/logo/logo-white.svg'): require('@/assets/logo/logo.svg')"
+            max-height="30px"
+            max-width="30px"
+            alt="logo"
+            contain
+            eager
+            class="app-logo me-3"
+          ></v-img>
+          <h2 class="app-title text--primary">VueKart</h2>
+        </router-link>
+      </div>
+      <div class="boxed-container" style="margin: 0px">
         <div class="d-flex align-center mx-12">
           <v-app-bar-nav-icon class="d-block d-lg-none me-2" @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
 
           <v-spacer></v-spacer>
 
-          <v-toolbar-items>
-            <router-link to="/" :class="$vuetify.theme.dark ? 'v-btn mx-4 white--text' : 'v-btn mx-4 white--text--dark'">
-              <span>Products</span>
-            </router-link>
-            <router-link to="/account-settings" class="v-btn mx-4 white--text">
-              <span>My Account</span>
-            </router-link>
-          </v-toolbar-items>
-          <v-spacer></v-spacer>
-          <theme-switcher></theme-switcher>
+          <theme-switcher style="padding: 20px"></theme-switcher>
           <!-- <v-btn
             icon
             small
@@ -47,14 +37,16 @@
               {{ icons.mdiBellOutline }}
             </v-icon>
           </v-btn> -->
-          <router-link tag="button" v-on="on" to="/cart" icon>
+          <router-link tag="button" v-on="on" to="/cart" icon style="padding: 20px">
             <v-badge :content="cart" :value="cart" overlap>
               <v-icon>{{ icons.mdiCartVariant }}</v-icon>
             </v-badge>
           </router-link>
-          <app-bar-user-menu></app-bar-user-menu>
+          <app-bar-user-menu style="padding: 20px"></app-bar-user-menu>
         </div>
       </div>
+
+    </div>
     </v-app-bar>
 
     <v-main>
@@ -106,9 +98,9 @@ export default {
   },
   computed: {
     cart() {
-      return this.$store.state.session.cart.length;
-    }
-  }
+      return this.$store.state.session.cart.length
+    },
+  },
 }
 </script>
 

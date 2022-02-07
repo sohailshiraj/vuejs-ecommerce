@@ -45,16 +45,16 @@
           style="vertical-align:middle"
         >
           <span class="text--primary font-weight-semibold mb-n1">
-            John Doe
+            {{user? user.name: ''}}
           </span>
-          <small class="text--disabled text-capitalize">Admin</small>
+          <!-- <small class="text--disabled text-capitalize">Admin</small> -->
         </div>
       </div>
 
       <v-divider></v-divider>
 
       <!-- Profile -->
-      <v-list-item link>
+      <v-list-item link to="/profile">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiAccountOutline }}
@@ -68,7 +68,7 @@
       <v-divider class="my-2"></v-divider>
 
       <!-- Settings -->
-      <v-list-item link href="/account-settings">
+      <v-list-item link to="/settings">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiCogOutline }}
@@ -155,6 +155,11 @@ export default {
       },
     }
   },
+  computed:{
+    user(){
+      return this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0];
+    }
+  }
 }
 </script>
 
