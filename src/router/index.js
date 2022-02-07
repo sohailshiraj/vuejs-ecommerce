@@ -69,6 +69,11 @@ const routes = [
     component: () => import('@/views/pages/account-settings/AccountSettings.vue'),
   },
   {
+    path: '/confirmation',
+    name: 'confirmation',
+    component: () => import('@/views/pages/PurchaseConfirmation.vue'),
+  },
+  {
     path: '/login',
     name: 'pages-login',
     component: () => import('@/views/pages/Login.vue'),

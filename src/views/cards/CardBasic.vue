@@ -255,46 +255,11 @@
                 Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola, body muscles and holding ones own breath. Though, most of these notes are not fundamentally necessary, they are such that you can use them for a good laugh, at a drinks party or for picking up women or men.
               </v-card-text>
               <v-card-text>
-                <v-divider></v-divider>
+                Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola, body muscles and holding ones own breath. Though, most of these notes are not fundamentally necessary, they are such that you can use them for a good laugh, at a drinks party or for picking up women or men.
               </v-card-text>
-              <v-card-actions class="d-flex justify-center">
-                <div class="me-auto pe-4">
-                  <p class="d-flex align-center mb-6">
-                    <v-icon color="primary">
-                      {{ icons.mdiLockOpenOutline }}
-                    </v-icon>
-                    <span class="ms-3">Full Access</span>
-                  </p>
-                  <p class="d-flex align-center mb-0">
-                    <v-icon color="primary">
-                      {{ icons.mdiAccountOutline }}
-                    </v-icon>
-                    <span class="ms-3">15 Members</span>
-                  </p>
-                </div>
-
-                <v-divider
-                  v-if="$vuetify.breakpoint.smAndUp"
-                  vertical
-                  inset
-                >
-                </v-divider>
-
-                <div class="ms-auto ps-4">
-                  <p class="d-flex align-center mb-6">
-                    <v-icon color="primary">
-                      {{ icons.mdiStarOutline }}
-                    </v-icon>
-                    <span class="ms-3">Access all Features</span>
-                  </p>
-                  <p class="d-flex align-center mb-0">
-                    <v-icon color="primary">
-                      {{ icons.mdiTrendingUp }}
-                    </v-icon>
-                    <span class="ms-3">Lifetime Free Update</span>
-                  </p>
-                </div>
-              </v-card-actions>
+              <v-card-text>
+                Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola, body muscles and holding ones own breath. Though, most of these notes are not fundamentally necessary, they are such that you can use them for a good laugh, at a drinks party or for picking up women or men.
+              </v-card-text>
             </v-col>
             <v-col
               cols="12"

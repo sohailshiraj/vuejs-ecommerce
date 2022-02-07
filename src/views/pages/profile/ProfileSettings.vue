@@ -22,22 +22,23 @@
     <!-- tabs item -->
     <v-tabs-items v-model="tab">
       <v-tab-item>
-        <account-settings-account :account-data="accountSettingData.account"></account-settings-account>
+        <profile-settings-account :account-data="accountSettingData"></profile-settings-account>
       </v-tab-item>
 
       <v-tab-item>
-        <account-settings-security></account-settings-security>
+        <profile-settings-security></profile-settings-security>
       </v-tab-item>
 
-      <v-tab-item>
+      <!-- <v-tab-item>
+        <profile-settings-account :account-data="accountSettingData"></profile-settings-account>
         <account-settings-info :information-data="accountSettingData.information"></account-settings-info>
-      </v-tab-item>
+      </v-tab-item> -->
     </v-tabs-items>
   </v-card>
 </template>
 
 <script>
-import { mdiAccountOutline, mdiLockOpenOutline, mdiInformationOutline } from '@mdi/js'
+import { mdiAccountOutline, mdiLockOpenOutline, mdiInformationOutline, mdiShoppingOutline } from '@mdi/js'
 import { ref } from '@vue/composition-api'
 
 // demos
@@ -57,42 +58,25 @@ export default {
     // tabs
     const tabs = [
       { title: 'Account', icon: mdiAccountOutline },
-      { title: 'Security', icon: mdiLockOpenOutline },
-      { title: 'Info', icon: mdiInformationOutline },
+      { title: 'My Purchases', icon: mdiShoppingOutline  },
+      // { title: 'Info', icon: mdiInformationOutline },
     ]
-
-    // account settings data
-    const accountSettingData = {
-      account: {
-        avatarImg: require('@/assets/images/avatars/avatar.png'),
-        username: 'johnDoe',
-        name: 'john Doe',
-        email: 'johnDoe@example.com',
-        role: 'Admin',
-        status: 'Active',
-        company: 'Google.inc',
-      },
-      information: {
-        bio: 'The name’s John Deo. I am a tireless seeker of knowledge, occasional purveyor of wisdom and also, coincidentally, a graphic designer. Algolia helps businesses across industries quickly create relevant 😎, scaLabel 😀, and lightning 😍 fast search and discovery experiences.',
-        birthday: 'February 22, 1995',
-        phone: '954-006-0844',
-        website: 'https://themeselection.com/',
-        country: 'USA',
-        languages: ['English', 'Spanish'],
-        gender: 'male',
-      },
-    }
 
     return {
       tab,
       tabs,
-      accountSettingData,
       icons: {
         mdiAccountOutline,
         mdiLockOpenOutline,
         mdiInformationOutline,
+        mdiShoppingOutline
       },
     }
   },
+  computed: {
+    accountSettingData() {
+      return this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0];
+    }
+  }
 }
 </script>

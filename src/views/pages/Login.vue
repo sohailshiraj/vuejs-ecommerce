@@ -81,6 +81,7 @@
             >
               Login
             </v-btn>
+            <p v-if="message">{{message}}</p>
           </v-form>
         </v-card-text>
 

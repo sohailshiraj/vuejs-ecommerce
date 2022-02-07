@@ -59,7 +59,7 @@
       <div class="boxed-container w-full">
         <div class="mx-6 d-flex justify-space-between">
           <span>
-            &copy; 2021
+            &copy; 2
             <a target="_blank">VueKart</a></span
           >
         </div>

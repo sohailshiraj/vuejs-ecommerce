@@ -17,7 +17,7 @@
                 <del style="" class="subtitle-1 font-weight-thin">${{product.price}}</del>
               </p>
               <v-spacer></v-spacer>
-              <v-rating v-model="product.rating" class="" background-color="warning lighten-3" color="warning" dense></v-rating>
+              <v-rating v-model="product.rating" class="" background-color="warning lighten-3" color="warning" dense readonly></v-rating>
               <span class="body-2 font-weight-thin">{{getReviewsCount(product)}} REVIEWS</span>
             </v-card-actions>
             <p class="subtitle-1 font-weight-thin">
@@ -60,6 +60,7 @@
                         background-color="warning lighten-3"
                         color="warning"
                         dense
+                        readonly
                       ></v-rating>
                       <v-list-item-subtitle v-html="item.reviewDescription"></v-list-item-subtitle>
                     </v-list-item-content>

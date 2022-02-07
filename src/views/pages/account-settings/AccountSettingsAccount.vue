@@ -9,7 +9,7 @@
         size="120"
         class="me-6"
       >
-        <v-img :src="accountDataLocale.avatarImg"></v-img>
+        <v-img src="@/assets/images/avatars/avatar.png"></v-img>
       </v-avatar>
 
       <!-- upload photo -->
@@ -45,21 +45,9 @@
       </div>
     </v-card-text>
 
-    <v-card-text>
+    <v-card-text v-if="accountDataLocale">
       <v-form class="multi-col-validation mt-6">
         <v-row>
-          <v-col
-            md="6"
-            cols="12"
-          >
-            <v-text-field
-              v-model="accountDataLocale.username"
-              label="Username"
-              dense
-              outlined
-            ></v-text-field>
-          </v-col>
-
           <v-col
             md="6"
             cols="12"
@@ -69,6 +57,7 @@
               label="Name"
               dense
               outlined
+              disabled
             ></v-text-field>
           </v-col>
 
@@ -81,43 +70,7 @@
               label="E-mail"
               dense
               outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-text-field
-              v-model="accountDataLocale.role"
-              dense
-              label="Role"
-              outlined
-            ></v-text-field>
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-select
-              v-model="accountDataLocale.status"
-              dense
-              outlined
-              label="Status"
-              :items="status"
-            ></v-select>
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="6"
-          >
-            <v-text-field
-              v-model="accountDataLocale.company"
-              dense
-              outlined
-              label="Company"
+              disabled
             ></v-text-field>
           </v-col>
 
@@ -135,14 +88,14 @@
 
                 <div class="ms-3">
                   <p class="text-base font-weight-medium mb-1">
-                    Your email is not confirmed. Please check your inbox.
+                    Updating Profile is temporarily disabled. 
                   </p>
-                  <a
+                  <!-- <a
                     href="javascript:void(0)"
                     class="text-decoration-none warning--text"
                   >
                     <span class="text-sm">Resend Confirmation</span>
-                  </a>
+                  </a> -->
                 </div>
               </div>
             </v-alert>
@@ -152,6 +105,7 @@
             <v-btn
               color="primary"
               class="me-3 mt-4"
+              disabled
             >
               Save changes
             </v-btn>
@@ -160,7 +114,7 @@
               outlined
               class="mt-4"
               type="reset"
-              @click.prevent="resetForm"
+              to="/"
             >
               Cancel
             </v-btn>
@@ -183,9 +137,9 @@ export default {
     },
   },
   setup(props) {
-    const status = ['Active', 'Inactive', 'Pending', 'Closed']
 
-    const accountDataLocale = ref(JSON.parse(JSON.stringify(props.accountData)))
+    console.log("props: ", props.accountData);
+    const accountDataLocale = props.accountData;
 
     const resetForm = () => {
       accountDataLocale.value = JSON.parse(JSON.stringify(props.accountData))

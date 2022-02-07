@@ -15,8 +15,9 @@ export default new Vuex.Store({
         ],
         session: {
             userId: '',
-            cart: []
+            cart: [],
         },
+        purchases: [],
         products: [
             {
                 id: 1,
@@ -152,6 +153,12 @@ export default new Vuex.Store({
         },
         clearUserIdSession(state){
             state.session.userId = null
+        },
+        addPurchaseItem(state, item) {
+            state.purchases.push(item);
+        },
+        clearCart(state) {
+            state.session.cart = [];
         }
     },
     actions: {},

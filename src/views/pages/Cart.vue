@@ -39,7 +39,7 @@
               </tbody>
             </template>
           </v-simple-table>
-          <template>
+          <template v-if="cart.length == 0">
             <p class="display-1 font-weight-light pa-1" style="background: transparent">Your cart is empty!</p>
           </template>
         </v-col>
@@ -49,7 +49,7 @@
             Shipping and additional costs are calculated based on values you
             have entered.
           </p>
-          <v-simple-table>
+          <v-simple-table v-if="cart">
             <template v-slot:default>
               <tbody>
                 <tr>
@@ -72,8 +72,9 @@
             </template>
           </v-simple-table>
           <div class="text-center">
-            <v-btn class="primary white--text mt-5" outlined
-              >PROCEED TO PAY</v-btn
+            <v-btn class="white--text mt-5" outlined
+              @click="proceedToBuy()"
+              >Proceed to Buy</v-btn
             >
           </div>
         </v-col>
@@ -90,6 +91,13 @@ export default {
     },
     products() {
       return this.$store.state.products;
+    },
+    purchases() {
+      console.log(this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId));
+      return this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId);
+    },
+    userId() {
+      return this.$store.state.session.userId;
     }
   },
   methods: {
@@ -102,17 +110,31 @@ export default {
     getSubTotal(){
       var sum = 0;
       this.cart.forEach(element => {
-        var product = this.getProduct(cart.id);
+        var product = this.getProduct(element.productId);
         var price = this.getDiscountedValue(product.price, product.discount);
-        sum += price;
+        sum += price * element.quantity;
       });
       return sum
     },
     calculateTax(){
-      return this.getSubTotal()/13 * 100;
+      return this.getSubTotal()/100 * 13;
     },
     calculateTotal(){
       return this.getSubTotal() + this.calculateTax() + (this.cart.length > 0? 10: 0);
+    },
+    proceedToBuy(){
+      this.cart.forEach((cart) => {
+        cart['product'] = this.getProduct(cart.productId)
+      });
+      var purchaseItem = {
+        items: this.cart,
+        total: this.calculateTotal(),
+        id: this.purchases.length + 1,
+        userId: this.userId
+      }
+      this.$store.commit('addPurchaseItem', purchaseItem);
+      this.$store.commit('clearCart');
+      this.$router.push('/confirmation');
     }
   }
 }
