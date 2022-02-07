@@ -138,7 +138,9 @@ export default {
       this.$store.commit('clearCart');
     },
     removeFromCart(productId, index) {
-      this.cart.split(index, 1);
+      if(this.cart){
+        this.cart.splice(index, 1);
+      }
       // this.$store.commit('removeFromCart', id);
     }
   }
