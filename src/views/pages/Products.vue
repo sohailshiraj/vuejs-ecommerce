@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="display-1 font-weight-light pa-1" style="background: transparent">Hello! {{user? user.name: ''}}</p>
     <v-row>
       <v-col lg="4" sm="6" cols="12" class="align-self-start" :key="pro.id" v-for="pro in products">
         <v-card>
@@ -17,7 +18,18 @@
               <v-icon>{{ icons.mdiAlertCircleOutline }}</v-icon>
             </v-btn>
           </router-link>
+          <div style="display:flex;justify-content: space-between;">
+            
           <v-card-title>{{ pro.name }}</v-card-title>
+          <v-rating
+                        v-model="pro.rating"
+                        class=""
+                        background-color="warning lighten-3"
+                        color="warning"
+                        dense
+                        style="align-self: center;padding-right: 20px;"
+                      ></v-rating>
+          </div>
           <v-card-text>
             <p class="text--primary text-base">
               ${{ getDiscountedValue(pro.price, pro.discount) }}
@@ -87,6 +99,9 @@ export default {
     products() {
       return this.$store.state.products
     },
+    user(){
+      return this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0];
+    }
   },
   methods: {
     getDiscountedValue(price, discount) {

@@ -8,9 +8,9 @@ export default new Vuex.Store({
         users: [
             {
                 id: 1,
-                name: '',
-                email: '',
-                password: '',
+                name: 'Sohail Shiraj',
+                email: 'admin@gmail.com',
+                password: 'admin',
             }
         ],
         session: {
@@ -144,6 +144,14 @@ export default new Vuex.Store({
     mutations: {
         addToCart(state, item) {
             state.session.cart.push(item);
+        },
+        setUserIdSession(state, userId) {
+            console.log(userId)
+            state.session.userId = userId;
+            console.log(state.session.userId);
+        },
+        clearUserIdSession(state){
+            state.session.userId = null
         }
     },
     actions: {},

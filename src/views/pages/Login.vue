@@ -159,17 +159,33 @@ export default {
       },
     }
   },
+  data: () => ({
+    message: null,
+  }),
   methods: {
     login() {
-      if (this.email != '' && this.password != '') {
-        if (this.email == 'admin@gmail.com' && this.password == 'admin') {
+      if(this.email != '' && this.password != ''){
+        let index = this.checkIfEmailAndPasswordCorrect(this.email, this.password);
+        if(index != -1){
+          let userId = this.users[index].id;
+          this.message = null;
+          this.$store.commit('setUserIdSession', userId);
           this.$router.push('/');
         } else {
-          console.log("Invalid username or password");
+          this.message = "Invalid username or password";
         }
-      } else {
-        console.log("Email or password is empty");
+      }else {
+        this.message = "Email and password required!"
       }
+    },
+    checkIfEmailAndPasswordCorrect(email, password){
+      let index = this.users.findIndex((user) => user.email == email && user.password == password);
+      return index;
+    }
+  },
+  computed: {
+    users() {
+      return this.$store.state.users;
     }
   }
 }
