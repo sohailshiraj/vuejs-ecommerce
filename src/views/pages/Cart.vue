@@ -4,7 +4,7 @@
       <p class="display-3 font-weight-light text-center pa-4">SHOPPING CART</p>
       <v-row>
         <v-col :cols="12" md="9" sm="12">
-          <v-simple-table>
+          <v-simple-table  v-if="cart.length > 0">
             <template v-slot:default>
               <thead>
                 <tr>
@@ -39,6 +39,9 @@
               </tbody>
             </template>
           </v-simple-table>
+          <template>
+            <p class="display-1 font-weight-light pa-1" style="background: transparent">Your cart is empty!</p>
+          </template>
         </v-col>
         <v-col :cols="12" md="3" sm="12" style="background-color: lightgray">
           <p class="headline">Order Summary</p>
@@ -51,19 +54,19 @@
               <tbody>
                 <tr>
                   <td>Order Subtotal</td>
-                  <td class="text-right" style="width: 50px">$160.00</td>
+                  <td class="text-right" style="width: 50px">${{getSubTotal()}}</td>
                 </tr>
                 <tr>
                   <td>Shipping Charges</td>
-                  <td class="text-right" style="width: 50px">$10.00</td>
+                  <td class="text-right" style="width: 50px">${{cart.length > 0? 10.00: 0.00}}</td>
                 </tr>
                 <tr>
                   <td>Tax</td>
-                  <td class="text-right" style="width: 50px">$5.00</td>
+                  <td class="text-right" style="width: 50px">${{calculateTax()}}</td>
                 </tr>
                 <tr>
                   <td>Total</td>
-                  <td class="text-right" style="width: 50px"><b>$175.00</b></td>
+                  <td class="text-right" style="width: 50px"><b>${{calculateTotal()}}</b></td>
                 </tr>
               </tbody>
             </template>
@@ -96,6 +99,21 @@ export default {
     getDiscountedValue(price, discount){
       return price - ( price/100 * discount);
     },
+    getSubTotal(){
+      var sum = 0;
+      this.cart.forEach(element => {
+        var product = this.getProduct(cart.id);
+        var price = this.getDiscountedValue(product.price, product.discount);
+        sum += price;
+      });
+      return sum
+    },
+    calculateTax(){
+      return this.getSubTotal()/13 * 100;
+    },
+    calculateTotal(){
+      return this.getSubTotal() + this.calculateTax() + (this.cart.length > 0? 10: 0);
+    }
   }
 }
 </script>

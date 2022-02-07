@@ -4,10 +4,7 @@
       <div class="row">
         <div class="col-md-5 col-sm-5 col-xs-12">
           <v-carousel>
-            <v-carousel-item :src="require('../../assets/img/home/slider4.jpg')"> </v-carousel-item>
-            <v-carousel-item :src="require('../../assets/img/home/slider2.jpg')"> </v-carousel-item>
-            <v-carousel-item :src="require('../../assets/img/home/slider3.jpg')"> </v-carousel-item>
-            <v-carousel-item :src="require('../../assets/img/home/slider1.jpg')"> </v-carousel-item>
+            <v-carousel-item :key="pro" v-for="pro in product.images" :src="pro"></v-carousel-item>
           </v-carousel>
         </div>
         <div class="col-md-7 col-sm-7 col-xs-12">
@@ -37,7 +34,7 @@
             <p class="title">ITEMS</p>
 
             <v-text-field outlined style="width: 100px" :value="1" v-model="quantity" dense></v-text-field>
-            <v-btn class="primary white--text" outlined tile dense @click="addToCart(id, quantity)"><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
+            <v-btn class="white--text" outlined tile dense @click="addToCart(id, quantity)"><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
           </div>
         </div>
       </div>
@@ -54,20 +51,17 @@
             <v-tab-item>
               <v-list three-line="true" avatar="true">
                 <v-list-item-group v-model="item" color="primary">
-                  <v-list-item v-for="(item, i) in items" :key="i" inactive="true">
-                    <v-list-item-avatar>
-                      <v-img :src="item.avatar"></v-img>
-                    </v-list-item-avatar>
+                  <v-list-item v-for="(item, i) in product.reviews" :key="i" inactive="true">
                     <v-list-item-content>
-                      <v-list-item-title v-html="item.title"></v-list-item-title
+                      <v-list-item-title v-html="item.personName"></v-list-item-title
                       ><v-rating
-                        v-model="rating"
+                        v-model="item.rating"
                         class=""
                         background-color="warning lighten-3"
                         color="warning"
                         dense
                       ></v-rating>
-                      <v-list-item-subtitle v-html="item.subtitle"></v-list-item-subtitle>
+                      <v-list-item-subtitle v-html="item.reviewDescription"></v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list-item-group>

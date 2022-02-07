@@ -20,9 +20,9 @@ export default new Vuex.Store({
         products: [
             {
                 id: 1,
-                name: 'Apple iPhone 11 Pro',
-                description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                longDescription: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
+                name: 'Black Tshirt',
+                description: 'Black tee shirt for mens',
+                longDescription: 'Black tshirt for mens. Available in all sizes. Limited Stock',
                 type: 'Electronics',
                 price: '885.00',
                 discount: 20,
@@ -35,11 +35,10 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png')
+                    require('../assets/img/shop/1.jpg'),
+                    require('../assets/img/shop/2.jpg')
                 ],
-                src: require('../assets/images/pages/card-basic-mobile.png')
+                src: require('../assets/img/shop/1.jpg')
             },
             {
                 id: 2,
@@ -67,11 +66,10 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png')
+                    require('../assets/img/shop/9.jpg'),
+                    require('../assets/img/shop/11.jpg')
                 ],
-                src: require('../assets/images/pages/card-basic-mobile.png')
+                src: require('../assets/img/shop/9.jpg')
             },
             {
                 id: 3,
@@ -99,11 +97,10 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png')
+                    require('../assets/img/shop/1.jpg'),
+                    require('../assets/img/shop/2.jpg')
                 ],
-                src: require('../assets/images/pages/card-basic-mobile.png')
+                src: require('../assets/img/shop/1.jpg')
             },
             {
                 id: 4,
@@ -131,11 +128,16 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png'),
-                    require('../assets/images/pages/card-basic-mobile.png')
+                    require('../assets/img/shop/1.jpg'),
+                    require('../assets/img/shop/2.jpg')
                 ],
-                src: require('../assets/images/pages/card-basic-mobile.png')
+                src: require('../assets/img/shop/1.jpg')
+                // images: [
+                //     require('../assets/images/pages/card-basic-mobile.png'),
+                //     require('../assets/images/pages/card-basic-mobile.png'),
+                //     require('../assets/images/pages/card-basic-mobile.png')
+                // ],
+                // src: require('../assets/images/pages/card-basic-mobile.png')
             },
         ],
     },
