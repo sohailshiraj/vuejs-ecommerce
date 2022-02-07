@@ -11,7 +11,13 @@ export default new Vuex.Store({
                 name: 'Sohail Shiraj',
                 email: 'admin@gmail.com',
                 password: 'admin',
-            }
+            },
+            {
+              id: 2,
+              name: 'Lovepreet Sandhu',
+              email: 'Sandhu@gmail.com',
+              password: 'Sandhu',
+          }
         ],
         session: {
             userId: '',
@@ -21,62 +27,9 @@ export default new Vuex.Store({
         products: [
             {
                 id: 1,
-                name: 'Black Tshirt',
-                description: 'Black tee shirt for mens',
-                longDescription: 'Black tshirt for mens. Available in all sizes. Limited Stock',
-                type: 'Electronics',
-                price: '885.00',
-                discount: 20,
-                rating: 5,
-                reviews: [
-                    {
-                        userId: 1,
-                        rating: 5,
-                        review: "Some review"
-                    }
-                ],
-                images: [
-                    require('../assets/img/shop/1.jpg'),
-                    require('../assets/img/shop/2.jpg')
-                ],
-                src: require('../assets/img/shop/1.jpg')
-            },
-            {
-                id: 2,
-                name: 'Apple iPhone 11 Pro',
-                description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                longDescription: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                type: 'Electronics',
-                price: '885.00',
-                discount: 20,
-                rating: 4.5,
-                reviews: [
-                    {
-                        id: 1,
-                        rating: 5,
-                        review: "Some review",
-                        personName: "Kumavat, Sutariya",
-                        reviewDescription: "Very good product, easy to use"
-                    },
-                    {
-                        id: 2,
-                        rating: 3.5,
-                        review: "Some review",
-                        personName: "Kumavat, Sutariya",
-                        reviewDescription: "Very good product, easy to use"
-                    }
-                ],
-                images: [
-                    require('../assets/img/shop/9.jpg'),
-                    require('../assets/img/shop/11.jpg')
-                ],
-                src: require('../assets/img/shop/9.jpg')
-            },
-            {
-                id: 3,
-                name: 'Apple iPhone 11 Pro',
-                description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                longDescription: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
+                name: 'iPhone XR',
+                description: 'Groundbreaking New Design',
+                longDescription: 'The iPhone XR features a precision-machined 7000 Series aerospace-grade aluminum frame that wraps around an all-glass enclosure with the same durable glass used in the more expensive iPhone XS. Apple designed the iPhone XR in six colors: white, black, blue, coral, yellow',
                 type: 'Electronics',
                 price: '885.00',
                 discount: 20,
@@ -86,60 +39,108 @@ export default new Vuex.Store({
                         id: 1,
                         rating: 5,
                         review: "Some review",
-                        personName: "Kumavat, Sutariya",
+                        personName: "Ali, Badruddin",
                         reviewDescription: "Very good product, easy to use"
                     },
                     {
                         id: 2,
                         rating: 3.5,
                         review: "Some review",
-                        personName: "Kumavat, Sutariya",
+                        personName: "Lovepreet, Sandhu",
                         reviewDescription: "Very good product, easy to use"
                     }
                 ],
                 images: [
                     require('../assets/img/shop/1.jpg'),
-                    require('../assets/img/shop/2.jpg')
+                    require('../assets/img/shop/1.jpg')
                 ],
                 src: require('../assets/img/shop/1.jpg')
             },
-            {
-                id: 4,
-                name: 'Apple iPhone 11 Pro',
-                description: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                longDescription: 'Apple iPhone 11 Pro smartphone. Announced Sep 2019. Features 5.8″ display Apple A13 Bionic',
-                type: 'Electronics',
-                price: '885.00',
-                discount: 20,
-                rating: 5,
-                reviews: [
-                    {
-                        id: 1,
-                        rating: 5,
-                        review: "Some review",
-                        personName: "Kumavat, Sutariya",
-                        reviewDescription: "Very good product, easy to use"
-                    },
-                    {
-                        id: 2,
-                        rating: 3.5,
-                        review: "Some review",
-                        personName: "Kumavat, Sutariya",
-                        reviewDescription: "Very good product, easy to use"
-                    }
-                ],
-                images: [
-                    require('../assets/img/shop/1.jpg'),
-                    require('../assets/img/shop/2.jpg')
-                ],
-                src: require('../assets/img/shop/1.jpg')
-                // images: [
-                //     require('../assets/images/pages/card-basic-mobile.png'),
-                //     require('../assets/images/pages/card-basic-mobile.png'),
-                //     require('../assets/images/pages/card-basic-mobile.png')
-                // ],
-                // src: require('../assets/images/pages/card-basic-mobile.png')
-            },
+                {
+                    id: 2,
+                    name: 'Iphone 11',
+                    description: 'Just the right amount for everything',
+                    longDescription: 'The iPhone 11 offers the new A13 chip, a 6.1-inch Liquid Retina HD LCD display, water resistance and a dual-camera system with 12MP Ultra Wide and Wide cameras.',
+                    type: 'Electronics',
+                    price: '698.76',
+                    discount: 20,
+                    rating: 5,
+                    reviews: [
+                        {
+                            userId: 1,
+                            rating: 5,
+                            review: "Some review"
+                        }
+                    ],
+                    images: [
+                        require('../assets/img/shop/2.jpg'),
+                        require('../assets/img/shop/2.jpg')
+                    ],
+                    src: require('../assets/img/shop/2.jpg')
+                },
+                {
+                    id: 3,
+                    name: 'iPhone 12',
+                    description: 'Blast, Past, Fast',
+                    longDescription: 'The iPhone 12 offers 5G capabilities, the new A14 Bionic chip, a 6.1-inch Super Retina XDR display, the new dual 12 MP rear camera and is available in white, black',
+                    type: 'Electronics',
+                    price: '976.32',
+                    discount: 20,
+                    rating: 4.5,
+                    reviews: [
+                        {
+                            id: 1,
+                            rating: 5,
+                            review: "Some review",
+                            personName: "Gill, Raman",
+                            reviewDescription: "Very good product, easy to use"
+                        },
+                        {
+                            id: 2,
+                            rating: 3.5,
+                            review: "Some review",
+                            personName: "Arsh, Sidhu",
+                            reviewDescription: "Very good product, easy to use"
+                        }
+                    ],
+                    images: [
+                        require('../assets/img/shop/3.jpg'),
+                        require('../assets/img/shop/3.jpg')
+                    ],
+                    src: require('../assets/img/shop/3.jpg')
+                },
+                {
+                    id: 4,
+                    name: 'iPhone 13',
+                    description: 'Your new superpower',
+                    longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
+                    type: 'Electronics',
+                    price: '1,130.76',
+                    discount: 20,
+                    rating: 5,
+                    reviews: [
+                        {
+                            id: 1,
+                            rating: 5,
+                            review: "Some review",
+                            personName: "Ali, Badruddin",
+                            reviewDescription: "Best phone ever"
+                        },
+                        {
+                            id: 2,
+                            rating: 3.5,
+                            review: "Some review",
+                            personName: "Shiraj, Sohail",
+                            reviewDescription: "Awesome phone"
+                        }
+                    ],
+                    images: [
+                        require('../assets/img/shop/4.jpg'),
+                        require('../assets/img/shop/4.jpg')
+                    ],
+                    src: require('../assets/img/shop/4.jpg')
+                },
+
         ],
     },
     mutations: {

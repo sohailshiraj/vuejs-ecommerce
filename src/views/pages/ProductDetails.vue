@@ -8,7 +8,6 @@
           </v-carousel>
         </div>
         <div class="col-md-7 col-sm-7 col-xs-12">
-          <v-breadcrumbs class="pb-0" :items="breadcrums"></v-breadcrumbs>
           <div class="pl-6">
             <p class="display-1 mb-0">{{ product.name }}</p>
             <v-card-actions class="pa-0">
@@ -25,12 +24,17 @@
             </p>
             <p class="title">SIZE</p>
             <v-radio-group v-model="row" row>
-              <v-radio label="XS" value="XS"></v-radio>
-              <v-radio label="S" value="s"></v-radio>
-              <v-radio label="M" value="m"></v-radio>
-              <v-radio label="L" value="l"></v-radio>
-              <v-radio label="XL" value="xl"></v-radio>
-            </v-radio-group>
+              <v-radio label="Mini" value="XS"></v-radio>
+              <v-radio label="Standard" value="s"></v-radio>
+              <v-radio label="Pro" value="m"></v-radio>
+              <v-radio label="Pro Max" value="l"></v-radio>
+              </v-radio-group>
+              <p class="title">STORAGE</p>
+            <v-radio-group v-model="row" row>
+              <v-radio label="64" value="XS"></v-radio>
+              <v-radio label="128" value="s"></v-radio>
+              <v-radio label="256" value="m"></v-radio>
+              </v-radio-group>
             <p class="title">ITEMS</p>
 
             <v-text-field outlined style="width: 100px" :value="1" v-model="quantity" dense></v-text-field>
