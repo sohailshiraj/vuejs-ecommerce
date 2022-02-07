@@ -142,9 +142,9 @@ export default new Vuex.Store({
                 },
                 {
                   id: 5,
-                  name: 'iPhone 13',
+                  name: 'iPhone 8',
                   description: 'Your new superpower',
-                  longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
+                  longDescription: 'Originally released September 2017 Unlocked, SIM-Free, Model A18631 4.7-inch Retina HD display with IPS technology A11 Bionic chip with embedded M11 motion coprocessor Talk time (wireless) up to 14 hours',
                   type: 'Electronics',
                   price: '1130',
                   discount: 20,
@@ -166,14 +166,14 @@ export default new Vuex.Store({
                       }
                   ],
                   images: [
-                      require('../assets/img/shop/4.jpg'),
-                      require('../assets/img/shop/4.jpg')
+                      require('../assets/img/shop/5.jpg'),
+                      require('../assets/img/shop/5.jpg')
                   ],
-                  src: require('../assets/img/shop/4.jpg')
+                  src: require('../assets/img/shop/5.jpg')
               },
               {
                 id: 6,
-                name: 'iPhone 13',
+                name: 'iPhone 7',
                 description: 'Your new superpower',
                 longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
                 type: 'Electronics',
@@ -197,42 +197,12 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/img/shop/4.jpg'),
-                    require('../assets/img/shop/4.jpg')
+                    require('../assets/img/shop/6.jpg'),
+                    require('../assets/img/shop/6.jpg')
                 ],
-                src: require('../assets/img/shop/4.jpg')
+                src: require('../assets/img/shop/6.jpg')
             },
-            {
-              id: 7,
-              name: 'iPhone 13',
-              description: 'Your new superpower',
-              longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
-              type: 'Electronics',
-              price: '1130',
-              discount: 20,
-              rating: 5,
-              reviews: [
-                  {
-                      id: 1,
-                      rating: 5,
-                      review: "Some review",
-                      personName: "Ali, Badruddin",
-                      reviewDescription: "Best phone ever"
-                  },
-                  {
-                      id: 2,
-                      rating: 3.5,
-                      review: "Some review",
-                      personName: "Shiraj, Sohail",
-                      reviewDescription: "Awesome phone"
-                  }
-              ],
-              images: [
-                  require('../assets/img/shop/4.jpg'),
-                  require('../assets/img/shop/4.jpg')
-              ],
-              src: require('../assets/img/shop/4.jpg')
-          },
+            
 
         ],
     },
