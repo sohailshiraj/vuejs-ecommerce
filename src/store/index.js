@@ -120,95 +120,6 @@ export default new Vuex.Store({
                 ],
                 src: require('../assets/img/shop/1.jpg')
             },
-<<<<<<< HEAD
-                {
-                    id: 2,
-                    name: 'Iphone 11',
-                    description: 'Just the right amount for everything',
-                    longDescription: 'The iPhone 11 offers the new A13 chip, a 6.1-inch Liquid Retina HD LCD display, water resistance and a dual-camera system with 12MP Ultra Wide and Wide cameras.',
-                    type: 'Electronics',
-                    price: '698',
-                    discount: 20,
-                    rating: 5,
-                    reviews: [
-                        {
-                            userId: 1,
-                            rating: 5,
-                            review: "Some review"
-                        }
-                    ],
-                    images: [
-                        require('../assets/img/shop/2.jpg'),
-                        require('../assets/img/shop/2.jpg')
-                    ],
-                    src: require('../assets/img/shop/2.jpg')
-                },
-                {
-                    id: 3,
-                    name: 'iPhone 12',
-                    description: 'Blast, Past, Fast',
-                    longDescription: 'The iPhone 12 offers 5G capabilities, the new A14 Bionic chip, a 6.1-inch Super Retina XDR display, the new dual 12 MP rear camera and is available in white, black',
-                    type: 'Electronics',
-                    price: '976',
-                    discount: 20,
-                    rating: 4.5,
-                    reviews: [
-                        {
-                            id: 1,
-                            rating: 5,
-                            review: "Some review",
-                            personName: "Gill, Raman",
-                            reviewDescription: "Very good product, easy to use"
-                        },
-                        {
-                            id: 2,
-                            rating: 3.5,
-                            review: "Some review",
-                            personName: "Arsh, Sidhu",
-                            reviewDescription: "Very good product, easy to use"
-                        }
-                    ],
-                    images: [
-                        require('../assets/img/shop/3.jpg'),
-                        require('../assets/img/shop/3.jpg')
-                    ],
-                    src: require('../assets/img/shop/3.jpg')
-                },
-                {
-                    id: 4,
-                    name: 'iPhone 13',
-                    description: 'Your new superpower',
-                    longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
-                    type: 'Electronics',
-                    price: '1130',
-                    discount: 20,
-                    rating: 5,
-                    reviews: [
-                        {
-                            id: 1,
-                            rating: 5,
-                            review: "Some review",
-                            personName: "Ali, Badruddin",
-                            reviewDescription: "Best phone ever"
-                        },
-                        {
-                            id: 2,
-                            rating: 3.5,
-                            review: "Some review",
-                            personName: "Shiraj, Sohail",
-                            reviewDescription: "Awesome phone"
-                        }
-                    ],
-                    images: [
-                        require('../assets/img/shop/4.jpg'),
-                        require('../assets/img/shop/4.jpg')
-                    ],
-                    src: require('../assets/img/shop/4.jpg')
-                },
-
-
-
-=======
             {
                 id: 2,
                 name: 'Iphone 11',
@@ -295,7 +206,6 @@ export default new Vuex.Store({
                 ],
                 src: require('../assets/img/shop/4.jpg')
             },
->>>>>>> b1991136da5e54ce2457713cb9ea10bb475e55d9
         ],
     },
     mutations: {
