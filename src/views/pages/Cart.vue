@@ -32,8 +32,13 @@
                   </td>
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount).toFixed(0) }}</td>
                   <td>{{ item.quantity }}</td>
+<<<<<<< HEAD
+                  <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
+                  <td><a>X</a></td>
+=======
                   <td>${{ (getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity).toFixed(2) }}</td>
                   <td><a @click="removeFromCart(item.productId, index)">X</a></td>
+>>>>>>> b1991136da5e54ce2457713cb9ea10bb475e55d9
                 </tr>
               </tbody>
             </template>
