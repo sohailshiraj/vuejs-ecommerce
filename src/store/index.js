@@ -31,7 +31,7 @@ export default new Vuex.Store({
                 description: 'Groundbreaking New Design',
                 longDescription: 'The iPhone XR features a precision-machined 7000 Series aerospace-grade aluminum frame that wraps around an all-glass enclosure with the same durable glass used in the more expensive iPhone XS. Apple designed the iPhone XR in six colors: white, black, blue, coral, yellow',
                 type: 'Electronics',
-                price: '885.00',
+                price: '885',
                 discount: 20,
                 rating: 5,
                 reviews: [
@@ -62,7 +62,7 @@ export default new Vuex.Store({
                     description: 'Just the right amount for everything',
                     longDescription: 'The iPhone 11 offers the new A13 chip, a 6.1-inch Liquid Retina HD LCD display, water resistance and a dual-camera system with 12MP Ultra Wide and Wide cameras.',
                     type: 'Electronics',
-                    price: '698.76',
+                    price: '698',
                     discount: 20,
                     rating: 5,
                     reviews: [
@@ -84,7 +84,7 @@ export default new Vuex.Store({
                     description: 'Blast, Past, Fast',
                     longDescription: 'The iPhone 12 offers 5G capabilities, the new A14 Bionic chip, a 6.1-inch Super Retina XDR display, the new dual 12 MP rear camera and is available in white, black',
                     type: 'Electronics',
-                    price: '976.32',
+                    price: '976',
                     discount: 20,
                     rating: 4.5,
                     reviews: [
@@ -115,7 +115,7 @@ export default new Vuex.Store({
                     description: 'Your new superpower',
                     longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
                     type: 'Electronics',
-                    price: '1,130.76',
+                    price: '1130',
                     discount: 20,
                     rating: 5,
                     reviews: [
@@ -140,6 +140,99 @@ export default new Vuex.Store({
                     ],
                     src: require('../assets/img/shop/4.jpg')
                 },
+                {
+                  id: 5,
+                  name: 'iPhone 13',
+                  description: 'Your new superpower',
+                  longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
+                  type: 'Electronics',
+                  price: '1130',
+                  discount: 20,
+                  rating: 5,
+                  reviews: [
+                      {
+                          id: 1,
+                          rating: 5,
+                          review: "Some review",
+                          personName: "Ali, Badruddin",
+                          reviewDescription: "Best phone ever"
+                      },
+                      {
+                          id: 2,
+                          rating: 3.5,
+                          review: "Some review",
+                          personName: "Shiraj, Sohail",
+                          reviewDescription: "Awesome phone"
+                      }
+                  ],
+                  images: [
+                      require('../assets/img/shop/4.jpg'),
+                      require('../assets/img/shop/4.jpg')
+                  ],
+                  src: require('../assets/img/shop/4.jpg')
+              },
+              {
+                id: 6,
+                name: 'iPhone 13',
+                description: 'Your new superpower',
+                longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
+                type: 'Electronics',
+                price: '1130',
+                discount: 20,
+                rating: 5,
+                reviews: [
+                    {
+                        id: 1,
+                        rating: 5,
+                        review: "Some review",
+                        personName: "Ali, Badruddin",
+                        reviewDescription: "Best phone ever"
+                    },
+                    {
+                        id: 2,
+                        rating: 3.5,
+                        review: "Some review",
+                        personName: "Shiraj, Sohail",
+                        reviewDescription: "Awesome phone"
+                    }
+                ],
+                images: [
+                    require('../assets/img/shop/4.jpg'),
+                    require('../assets/img/shop/4.jpg')
+                ],
+                src: require('../assets/img/shop/4.jpg')
+            },
+            {
+              id: 7,
+              name: 'iPhone 13',
+              description: 'Your new superpower',
+              longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
+              type: 'Electronics',
+              price: '1130',
+              discount: 20,
+              rating: 5,
+              reviews: [
+                  {
+                      id: 1,
+                      rating: 5,
+                      review: "Some review",
+                      personName: "Ali, Badruddin",
+                      reviewDescription: "Best phone ever"
+                  },
+                  {
+                      id: 2,
+                      rating: 3.5,
+                      review: "Some review",
+                      personName: "Shiraj, Sohail",
+                      reviewDescription: "Awesome phone"
+                  }
+              ],
+              images: [
+                  require('../assets/img/shop/4.jpg'),
+                  require('../assets/img/shop/4.jpg')
+              ],
+              src: require('../assets/img/shop/4.jpg')
+          },
 
         ],
     },
