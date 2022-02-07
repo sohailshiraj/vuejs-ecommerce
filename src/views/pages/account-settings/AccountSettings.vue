@@ -21,9 +21,9 @@
 
     <!-- tabs item -->
     <v-tabs-items v-model="tab">
-      <v-tab-item>
+      <!-- <v-tab-item>
         <account-settings-account :account-data="accountSettingData"></account-settings-account>
-      </v-tab-item>
+      </v-tab-item> -->
 
       <v-tab-item>
         <account-settings-security></account-settings-security>
@@ -56,7 +56,7 @@ export default {
 
     // tabs
     const tabs = [
-      { title: 'Account', icon: mdiAccountOutline },
+      // { title: 'Account', icon: mdiAccountOutline },
       { title: 'Security', icon: mdiLockOpenOutline },
       // { title: 'Info', icon: mdiInformationOutline },
     ]
