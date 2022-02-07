@@ -33,11 +33,7 @@
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
-                  <td><a>X</a></td>
-
-
-
-
+                  <td><a @click="removeFromCart(item.productId)">X</a></td>
                 </tr>
               </tbody>
             </template>
@@ -89,14 +85,15 @@
 <script>
 export default {
   computed: {
-    cart() {
-      return this.$store.state.session.cart;
+    cart: {
+      get() {
+        return this.$store.state.session.cart;
+      }
     },
     products() {
       return this.$store.state.products;
     },
     purchases() {
-      console.log(this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId));
       return this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId);
     },
     userId() {
@@ -140,9 +137,11 @@ export default {
       this.$router.push('/confirmation');
     },
     clearCart(){
-          this.$store.commit('clearCart');
+      this.$store.commit('clearCart');
+    },
+    removeFromCart(id) {
+      this.$store.commit('removeFromCart', id);
     }
-
   }
 }
 </script>

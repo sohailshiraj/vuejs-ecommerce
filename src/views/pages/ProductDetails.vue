@@ -69,6 +69,22 @@
                       <v-list-item-subtitle v-html="item.reviewDescription"></v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
+
+                  <v-list-item>
+                    <v-list-item-content>
+                      <v-text-field outlined style="width: 100px" :value="1" v-model="review" dense></v-text-field>
+                      <v-rating
+                        v-model="newRating"
+                        class=""
+                        background-color="warning lighten-3"
+                        color="warning"
+                        value="0"
+                        dense
+                      ></v-rating>
+                      <v-btn class="white--text" outlined tile dense @click="addReview(id, newRating, review)"><v-icon>mdi-cart</v-icon>Post review</v-btn>
+                    </v-list-item-content>
+                  </v-list-item>
+
                 </v-list-item-group>
               </v-list>
             </v-tab-item>
@@ -154,6 +170,14 @@ export default {
           quantity: quantity
       };
       this.$store.commit('addToCart', item);
+    },
+    addReview(id, rating, review) {
+      let newReview = {
+        id: id,
+        rating: rating,
+        review: review
+      }; 
+      this.$store.commit('addReview', newReview);
     }
   }
 }

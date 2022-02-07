@@ -39,7 +39,7 @@ export default new Vuex.Store({
                         id: 1,
                         rating: 5,
                         review: "Some review",
-                        personName: "Ali, Badruddin",
+                        personName: "Ali Ahad, Badruddin",
                         reviewDescription: "Very good product, easy to use"
                     },
                     {
@@ -148,6 +148,11 @@ export default new Vuex.Store({
         addToCart(state, item) {
             state.session.cart.push(item);
         },
+        removeFromCart(state, id) {
+            state.session.cart = state.session.cart.filter(function(obj) {
+                return obj.id !== id;
+            });
+        },
         setUserIdSession(state, userId) {
             console.log(userId)
             state.session.userId = userId;
@@ -161,6 +166,20 @@ export default new Vuex.Store({
         },
         clearCart(state) {
             state.session.cart = [];
+        },
+        addReview(state, review) {
+            let productIndex = state.products.findIndex(function(obj) {
+                return obj.id == review.id;
+            });
+            let newReview = {
+                id: state.products[productIndex].reviews.length + 1,
+                rating: review.rating,
+                review: review.review,
+                personName: state.users.filter((user) => user.id = state.session.userId)[0].name,
+                reviewDescription: review.review
+            }
+            state.products[productIndex].reviews.push(newReview);
+            console.log(JSON.stringify(state.products[productIndex].reviews));
         }
     },
     actions: {},
