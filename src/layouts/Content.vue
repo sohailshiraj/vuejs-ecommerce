@@ -1,18 +1,12 @@
 <template>
   <v-app>
     <!-- <vertical-nav-menu :is-drawer-open.sync="isDrawerOpen"></vertical-nav-menu> -->
-    <v-app-bar
-      app
-      flat
-      :color="!$vuetify.theme.dark ? 'white' : '#28243D'"
-    >
+    <v-app-bar app flat:color="!$vuetify.theme.dark ? 'white' : '#28243D'">
     <div style="display: flex; height: 64px; justify-content: space-between !important; width: 100%;">
       <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
         <router-link to="/" class="d-flex align-center text-decoration-none">
           <v-img
-            :src="$vuetify.theme.dark?  require('@/assets/logo/logo-white.svg'): require('@/assets/logo/logo.svg')"
-            max-height="30px"
-            max-width="30px"
+            :src="$vuetify.theme.dark?  require('@/assets/logo/logo-white.svg'): require('@/assets/logo/logo.svg')" max-height="30px" max-width="30px"
             alt="logo"
             contain
             eager
@@ -28,15 +22,7 @@
           <v-spacer></v-spacer>
 
           <theme-switcher style="padding: 20px"></theme-switcher>
-          <!-- <v-btn
-            icon
-            small
-            class="ms-3"
-          >
-            <v-icon>
-              {{ icons.mdiBellOutline }}
-            </v-icon>
-          </v-btn> -->
+
           <router-link tag="button" v-on="on" to="/cart" icon style="padding: 20px">
             <v-badge :content="cart" :value="cart" overlap>
               <v-icon>{{ icons.mdiCartVariant }}</v-icon>
