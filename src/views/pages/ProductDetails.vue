@@ -154,7 +154,7 @@ export default {
   },
   computed: {
     product() {
-      return this.$store.state.products[this.id]
+      return this.$store.state.products[this.id -1]
     },
   },
   methods: {
@@ -175,9 +175,17 @@ export default {
       let newReview = {
         id: id,
         rating: rating,
-        review: review
+        review: review,
+        personName: this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0].name,
+        reviewDescription: review
       }; 
-      this.$store.commit('addReview', newReview);
+      this.product.reviews.push(newReview);
+      // this.$store.commit('addReview', newReview);
+      this.clearFields();
+    },
+    clearFields(){
+      this.newRating = 0
+      this.review = '';
     }
   }
 }

@@ -16,7 +16,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr :key="item.productId" v-for="item in cart">
+                <tr :key="item.productId" v-for="(item, index) in cart">
                   <td>
                     <v-list-item>
                       <v-list-item-avatar>
@@ -33,7 +33,7 @@
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>${{ getDiscountedValue(getProduct(item.productId).price, getProduct(item.productId).discount) * item.quantity }}</td>
-                  <td><a @click="removeFromCart(item.productId)">X</a></td>
+                  <td><a @click="removeFromCart(item.productId, index)">X</a></td>
                 </tr>
               </tbody>
             </template>
@@ -85,10 +85,8 @@
 <script>
 export default {
   computed: {
-    cart: {
-      get() {
-        return this.$store.state.session.cart;
-      }
+    cart() {
+      return this.$store.state.session.cart;
     },
     products() {
       return this.$store.state.products;
@@ -139,8 +137,9 @@ export default {
     clearCart(){
       this.$store.commit('clearCart');
     },
-    removeFromCart(id) {
-      this.$store.commit('removeFromCart', id);
+    removeFromCart(productId, index) {
+      this.cart.split(index, 1);
+      // this.$store.commit('removeFromCart', id);
     }
   }
 }
