@@ -72,7 +72,7 @@
 
                   <v-list-item v-if="havePurchasedProduct(id)">
                     <v-list-item-content>
-                      <v-text-field outlined style="width: 100px" :value="1" v-model="review" dense></v-text-field>
+                      <v-text-field outlined style="width: 100px" :value="1" v-model="review" placeholder="Post a review" dense></v-text-field>
                       <v-rating
                         v-model="newRating"
                         class=""

@@ -92,7 +92,7 @@ export default {
       return this.$store.state.products;
     },
     purchases() {
-      return this.$store.state.purchases.filter((items) => items.userId == this.$$store.state.session.userId);
+      return this.$store.state.purchases.filter((items) => items.userId == this.$store.state.session.userId);
     },
     userId() {
       return this.$store.state.session.userId;

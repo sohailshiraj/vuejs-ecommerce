@@ -26,7 +26,7 @@
                   <div class="membership-pricing">
                     <p class="mt-16 text--primary">
                       <sub class="text-2xl">$</sub>
-                      <sup style="font-size: 3rem; top: 9px" class="font-weight-semibold">{{ purchase.total.toFixed(2) }}</sup>
+                      <sup style="font-size: 3rem; top: 9px" class="font-weight-semibold">{{ purchase.total }}</sup>
                       <sub class="text-xl">CAD</sub>
                     </p>
                   </div>
