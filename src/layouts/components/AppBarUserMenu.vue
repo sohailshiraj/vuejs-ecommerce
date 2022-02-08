@@ -47,13 +47,11 @@
           <span class="text--primary font-weight-semibold mb-n1">
             {{user? user.name: ''}}
           </span>
-          <!-- <small class="text--disabled text-capitalize">Admin</small> -->
         </div>
       </div>
 
       <v-divider></v-divider>
 
-      <!-- Profile -->
       <v-list-item link to="/profile">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
@@ -67,7 +65,6 @@
 
       <v-divider class="my-2"></v-divider>
 
-      <!-- Settings -->
       <v-list-item link to="/settings">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
@@ -81,7 +78,6 @@
 
       <v-divider class="my-2"></v-divider>
 
-      <!-- Logout -->
       <v-list-item link href="/login">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
