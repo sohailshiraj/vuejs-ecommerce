@@ -17,7 +17,6 @@
       </div>
       <div class="boxed-container" style="margin: 0px">
         <div class="d-flex align-center mx-12">
-          <v-app-bar-nav-icon class="d-block d-lg-none me-2" @click="isDrawerOpen = !isDrawerOpen"></v-app-bar-nav-icon>
 
           <v-spacer></v-spacer>
 
