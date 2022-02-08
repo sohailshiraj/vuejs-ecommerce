@@ -129,7 +129,7 @@ export default {
         review: review,
         personName: this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0].name,
         reviewDescription: review
-      }; 
+      };
       this.product.reviews.push(newReview);
       // this.$store.commit('addReview', newReview);
       this.clearFields();
@@ -149,7 +149,6 @@ export default {
           }
         }
       });
-
       return flag;
     }
   }

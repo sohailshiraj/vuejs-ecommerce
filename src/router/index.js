@@ -13,11 +13,7 @@ const routes = [
     name: 'icons',
     component: () => import('@/views/pages/Products.vue'),
   },
-  {
-    path: '/layout',
-    name: 'layout',
-    component: () => import('@/components/Layout.vue'),
-  },
+
   {
     path: '/cart',
     name: 'cart',
@@ -28,36 +24,7 @@ const routes = [
     name: 'product-details',
     component: () => import('@/views/pages/ProductDetails.vue'),
   },
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    component: () => import('@/views/dashboard/Dashboard.vue'),
-  },
-  {
-    path: '/typography',
-    name: 'typography',
-    component: () => import('@/views/typography/Typography.vue'),
-  },
-  {
-    path: '/icons',
-    name: 'icons',
-    component: () => import('@/views/icons/Icons.vue'),
-  },
-  {
-    path: '/cards',
-    name: 'cards',
-    component: () => import('@/views/cards/Card.vue'),
-  },
-  {
-    path: '/simple-table',
-    name: 'simple-table',
-    component: () => import('@/views/simple-table/SimpleTable.vue'),
-  },
-  {
-    path: '/form-layouts',
-    name: 'form-layouts',
-    component: () => import('@/views/form-layouts/FormLayouts.vue'),
-  },
+
   {
     path: '/profile',
     name: 'profile',
@@ -90,16 +57,12 @@ const routes = [
     },
   },
   {
-    path: '/error-404',
+    path: '*',
     name: 'error-404',
     component: () => import('@/views/Error.vue'),
     meta: {
       layout: 'blank',
     },
-  },
-  {
-    path: '*',
-    redirect: 'error-404',
   },
 ]
 

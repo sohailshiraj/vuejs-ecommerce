@@ -18,7 +18,7 @@
             ></v-img>
 
             <h2 class="text-2xl font-weight-semibold">
-              VueCart
+              VueKart
             </h2>
           </router-link>
         </v-card-title>
@@ -26,7 +26,7 @@
         <!-- title -->
         <v-card-text>
           <p class="text-2xl font-we bight-semibold text--primary mb-2">
-            Welcome to VueCart!
+            Welcome to VueKart!
           </p>
           <p class="mb-2">
             Please sign-in to your account and explore the world

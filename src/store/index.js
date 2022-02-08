@@ -27,7 +27,7 @@ export default new Vuex.Store({
         products: [
 
           {
-            id: 6,
+            id: 1,
             name: 'iPhone 7',
             description: 'Your new superpower',
             longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
@@ -52,13 +52,14 @@ export default new Vuex.Store({
                 }
             ],
             images: [
-                require('../assets/img/shop/6.jpg'),
-                require('../assets/img/shop/6.jpg')
+                require('../assets/img/shop/1.jpg'),
+                require('../assets/img/shop/1.jpg')
             ],
-            src: require('../assets/img/shop/6.jpg')
+            src: require('../assets/img/shop/1.jpg')
         },
+
         {
-          id: 5,
+          id: 2,
           name: 'iPhone 8',
           description: 'Your new superpower',
           longDescription: 'Originally released September 2017 Unlocked, SIM-Free, Model A18631 4.7-inch Retina HD display with IPS technology A11 Bionic chip with embedded M11 motion coprocessor Talk time (wireless) up to 14 hours',
@@ -83,14 +84,14 @@ export default new Vuex.Store({
               }
           ],
           images: [
-              require('../assets/img/shop/5.jpg'),
-              require('../assets/img/shop/5.jpg')
+              require('../assets/img/shop/2.jpg'),
+              require('../assets/img/shop/2.jpg')
           ],
-          src: require('../assets/img/shop/5.jpg')
+          src: require('../assets/img/shop/2.jpg')
       },
 
             {
-                id: 1,
+                id: 3,
                 name: 'iPhone XR',
                 description: 'Groundbreaking New Design',
                 longDescription: 'The iPhone XR features a precision-machined 7000 Series aerospace-grade aluminum frame that wraps around an all-glass enclosure with the same durable glass used in the more expensive iPhone XS. Apple designed the iPhone XR in six colors: white, black, blue, coral, yellow',
@@ -115,13 +116,13 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/img/shop/1.jpg'),
-                    require('../assets/img/shop/1.jpg')
+                    require('../assets/img/shop/3.jpg'),
+                    require('../assets/img/shop/3.jpg')
                 ],
-                src: require('../assets/img/shop/1.jpg')
+                src: require('../assets/img/shop/3.jpg')
             },
             {
-                id: 2,
+                id: 4,
                 name: 'Iphone 11',
                 description: 'Just the right amount for everything',
                 longDescription: 'The iPhone 11 offers the new A13 chip, a 6.1-inch Liquid Retina HD LCD display, water resistance and a dual-camera system with 12MP Ultra Wide and Wide cameras.',
@@ -139,13 +140,13 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/img/shop/2.jpg'),
-                    require('../assets/img/shop/2.jpg')
+                    require('../assets/img/shop/4.jpg'),
+                    require('../assets/img/shop/4.jpg')
                 ],
-                src: require('../assets/img/shop/2.jpg')
+                src: require('../assets/img/shop/4.jpg')
             },
             {
-                id: 3,
+                id: 5,
                 name: 'iPhone 12',
                 description: 'Blast, Past, Fast',
                 longDescription: 'The iPhone 12 offers 5G capabilities, the new A14 Bionic chip, a 6.1-inch Super Retina XDR display, the new dual 12 MP rear camera and is available in white, black',
@@ -170,13 +171,13 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/img/shop/3.jpg'),
-                    require('../assets/img/shop/3.jpg')
+                    require('../assets/img/shop/5.jpg'),
+                    require('../assets/img/shop/5.jpg')
                 ],
-                src: require('../assets/img/shop/3.jpg')
+                src: require('../assets/img/shop/5.jpg')
             },
             {
-                id: 4,
+                id: 6,
                 name: 'iPhone 13',
                 description: 'Your new superpower',
                 longDescription: 'The iPhone 13 offers access to Bell’s 5G network, the powerful new A15 Bionic chip, a 6.1-inch Super Retina XDR display, and the new dual rear camera',
@@ -201,10 +202,10 @@ export default new Vuex.Store({
                     }
                 ],
                 images: [
-                    require('../assets/img/shop/4.jpg'),
-                    require('../assets/img/shop/4.jpg')
+                    require('../assets/img/shop/6.jpg'),
+                    require('../assets/img/shop/6.jpg')
                 ],
-                src: require('../assets/img/shop/4.jpg')
+                src: require('../assets/img/shop/6.jpg')
             },
         ],
     },
