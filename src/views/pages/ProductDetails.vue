@@ -113,7 +113,7 @@ export default {
   methods: {
     getProductDetail(id) {
       this.axios
-        .get("http://192.168.2.63/ecommerce-service/api/product.php?action=fetchOneProduct&id=" + id)
+        .get("http://localhost/ecommerce-service/api/product.php?action=fetchOneProduct&id=" + id)
         .then((response) => {
           console.log(response.data);
           this.product = response.data; 
@@ -146,7 +146,7 @@ export default {
       // };
 
       this.axios
-        .post("http://192.168.2.63/ecommerce-service/api/review.php?action=insertReview", {
+        .post("http://localhost/ecommerce-service/api/review.php?action=insertReview", {
           rating: rating,
           comment: review,
           userId: this.$store.state.session.userId,

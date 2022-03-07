@@ -167,7 +167,7 @@ export default {
     login() {
       if(this.email != '' && this.password != ''){
         this.axios
-        .post("http://192.168.2.63/ecommerce-service/api/user.php?action=loginUser", {
+        .post("http://localhost/ecommerce-service/api/user.php?action=loginUser", {
           email: this.email,
           password: this.password
         })

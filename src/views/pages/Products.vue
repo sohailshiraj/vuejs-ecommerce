@@ -107,7 +107,7 @@ export default {
   methods: {
     getAllProducts() {
       this.axios
-        .get("http://192.168.2.63/ecommerce-service/api/product.php?action=fetchAllProducts")
+        .get("http://localhost/ecommerce-service/api/product.php?action=fetchAllProducts")
         .then((response) => { 
           console.log(response);
           this.products = response.data; 
