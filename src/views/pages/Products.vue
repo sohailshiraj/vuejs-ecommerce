@@ -5,7 +5,7 @@
       <v-col lg="4" sm="6" cols="12" class="align-self-start" :key="pro.id" v-for="pro in products">
         <v-card>
           <router-link :to="{ name: 'product-details', params: { id: pro.id } }">
-            <v-img :src="pro.src" style="height: 300px"></v-img>
+            <v-img :src="require('../../assets/img/shop/'+ pro.image)" style="height: 300px"></v-img>
             <v-btn
               text
               color="primary"
@@ -94,19 +94,37 @@ export default {
     select: 'Popularity',
     options: ['Default', 'Popularity', 'Relevance', 'Price: Low to High', 'Price: High to Low'],
     quantity: [1, 2, 3, 4, 5],
+    products: []
   }),
   computed: {
-    products() {
-      return this.$store.state.products
-    },
+    // products() {
+    //   return this.$store.state.products
+    // },
     user(){
       return this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0];
     }
   },
   methods: {
+    getAllProducts() {
+      this.axios
+        .get("http://192.168.2.63/ecommerce-service/api/product.php?action=fetchAllProducts")
+        .then((response) => { 
+          console.log(response);
+          this.products = response.data; 
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     getDiscountedValue(price, discount) {
       return price - (price / 100) * discount
     },
+    displayImage(url){
+      return require(url)
+    }
   },
+  created() {
+    this.getAllProducts()
+  }
 }
 </script>

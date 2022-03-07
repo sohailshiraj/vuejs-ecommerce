@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-5 col-sm-5 col-xs-12">
           <v-carousel>
-            <v-carousel-item :key="pro" v-for="pro in product.images" :src="pro"></v-carousel-item>
+            <v-carousel-item :src="require('../../assets/img/shop/'+ product.image)"></v-carousel-item>
           </v-carousel>
         </div>
         <div class="col-md-7 col-sm-7 col-xs-12">
@@ -38,7 +38,7 @@
             <p class="title">ITEMS</p>
 
             <v-text-field outlined style="width: 100px" :value="1" v-model="quantity" dense></v-text-field>
-            <v-btn class="white--text" outlined tile dense @click="addToCart(id, quantity)"><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
+            <v-btn class="white--text" outlined tile dense @click="addToCart(product.id, quantity)"><v-icon>mdi-cart</v-icon> ADD TO CART</v-btn>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
                 <v-list-item-group v-model="item" color="primary">
                   <v-list-item v-for="(item, i) in product.reviews" :key="i" inactive="true">
                     <v-list-item-content>
-                      <v-list-item-title v-html="item.personName"></v-list-item-title
+                      <v-list-item-title v-html="item.user.name"></v-list-item-title
                       ><v-rating
                         v-model="item.rating"
                         class=""
@@ -66,7 +66,7 @@
                         dense
                         readonly
                       ></v-rating>
-                      <v-list-item-subtitle v-html="item.reviewDescription"></v-list-item-subtitle>
+                      <v-list-item-subtitle v-html="item.comment"></v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
 
@@ -98,17 +98,31 @@
 export default {
   data: () => ({
     rating: 4.5,
-    item: 5
+    item: 5,
+    product: {}
   }),
   created() {
-    this.id = this.$route.params.id
+    this.id = this.$route.params.id;
+    this.getProductDetail(this.id);
   },
   computed: {
-    product() {
-      return this.$store.state.products[this.id -1]
-    },
+    // product() {
+    //   return this.$store.state.products[this.id -1]
+    // },
   },
   methods: {
+    getProductDetail(id) {
+      this.axios
+        .get("http://192.168.2.63/ecommerce-service/api/product.php?action=fetchOneProduct&id=" + id)
+        .then((response) => {
+          console.log(response.data);
+          this.product = response.data; 
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      this.product = this.$store.state.products[this.id -1];
+    },
     getDiscountedValue(price, discount){
       return price - ( price/100 * discount);
     },
@@ -123,14 +137,29 @@ export default {
       this.$store.commit('addToCart', item);
     },
     addReview(id, rating, review) {
-      let newReview = {
-        id: id,
-        rating: rating,
-        review: review,
-        personName: this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0].name,
-        reviewDescription: review
-      };
-      this.product.reviews.push(newReview);
+      // let newReview = {
+      //   id: id,
+      //   rating: rating,
+      //   review: review,
+      //   personName: this.$store.state.users.filter((user) => user.id = this.$store.state.session.userId)[0].name,
+      //   reviewDescription: review
+      // };
+
+      this.axios
+        .post("http://192.168.2.63/ecommerce-service/api/review.php?action=insertReview", {
+          rating: rating,
+          comment: review,
+          userId: this.$store.state.session.userId,
+          productId: id
+        })
+        .then((response) => { 
+          console.log(response);
+          this.getProductDetail(id);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // this.product.reviews.push(newReview);
       // this.$store.commit('addReview', newReview);
       this.clearFields();
     },
@@ -140,7 +169,7 @@ export default {
     },
     havePurchasedProduct(id) {
       let currUserId = this.$store.state.session.userId;
-      var flag = false;
+      var flag = true;
 
       this.$store.state.purchases.forEach(element => {
         if (element.userId = currUserId) {
@@ -151,6 +180,6 @@ export default {
       });
       return flag;
     }
-  }
+  },
 }
 </script>

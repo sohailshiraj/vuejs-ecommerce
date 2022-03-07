@@ -8,8 +8,8 @@
               <v-row class="ma-0 h-full">
                 <v-col cols="12" sm="8" md="12" lg="8" order="2" order-lg="1">
                   <v-card-title>Purchase # {{ purchase.id }}</v-card-title>
-                  <v-card-text :key="purchase.id + item.id" v-for="(item, index) in purchase.items">
-                    {{ index + 1 }}. Product: <b>{{ item.product.name }}</b
+                  <v-card-text :key="purchase.id + item.id" v-for="(item, index) in purchase.products">
+                    {{ index + 1 }}. Product: <b>{{ getProductById(item.productId).name }}</b
                     >, Quantity: <b>{{ item.quantity }}</b>
                   </v-card-text>
                 </v-col>
@@ -26,7 +26,7 @@
                   <div class="membership-pricing">
                     <p class="mt-16 text--primary">
                       <sub class="text-2xl">$</sub>
-                      <sup style="font-size: 3rem; top: 9px" class="font-weight-semibold">{{ purchase.total }}</sup>
+                      <sup style="font-size: 3rem; top: 9px" class="font-weight-semibold">{{ purchase.subTotal + purchase.taxAmount + 10 }}</sup>
                       <sub class="text-xl">CAD</sub>
                     </p>
                   </div>
@@ -57,18 +57,51 @@ export default {
       },
     }
   },
-  computed: {
-    purchases() {
-      console.log(this.$store.state.purchases)
-      return this.$store.state.purchases.filter(items => items.userId == this.$store.state.session.userId)
+  data: () => ({
+    purchases: [],
+    products: []
+  }),
+  methods: {
+    getAllPurchases() {
+      this.axios
+        .get("http://192.168.2.63/ecommerce-service/api/order.php?action=fetchOrdersByUserId&userId="+ this.$store.state.session.userId)
+        .then((response) => { 
+          console.log(response);
+          this.purchases = response.data; 
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
-    products() {
-      return this.$store.state.products
+    getAllProducts() {
+      this.axios
+        .get("http://192.168.2.63/ecommerce-service/api/product.php?action=fetchAllProducts")
+        .then((response) => { 
+          console.log(response);
+          this.products = response.data; 
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     getProductById(id) {
       return this.products.filter(product => product.id == id)[0]
     },
   },
+  computed: {
+    // purchases() {
+    //   console.log(this.$store.state.purchases)
+    //   return this.$store.state.purchases.filter(items => items.userId == this.$store.state.session.userId)
+    // },
+    // products() {
+    //   return this.$store.state.products
+    // },
+    
+  },
+  created(){
+    this.getAllProducts();
+    this.getAllPurchases();
+  }
 }
 </script>
 

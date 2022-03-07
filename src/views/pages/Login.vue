@@ -166,15 +166,25 @@ export default {
   methods: {
     login() {
       if(this.email != '' && this.password != ''){
-        let index = this.checkIfEmailAndPasswordCorrect(this.email, this.password);
-        if(index != -1){
-          let userId = this.users[index].id;
-          this.message = null;
-          this.$store.commit('setUserIdSession', userId);
-          this.$router.push('/');
-        } else {
+        this.axios
+        .post("http://192.168.2.63/ecommerce-service/api/user.php?action=loginUser", {
+          email: this.email,
+          password: this.password
+        })
+        .then((response) => { 
+          console.log(response);
+          if(response.data == '' ){
+            this.message = "Invalid username or password";
+          }else {
+            this.message = null;
+            this.$store.commit('setUserIdSession', response.data.id);
+            this.$router.push('/');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           this.message = "Invalid username or password";
-        }
+        });
       }else {
         this.message = "Email and password required!"
       }

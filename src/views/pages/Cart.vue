@@ -4,7 +4,7 @@
       <p class="display-3 font-weight-light text-center pa-4">Checkout Cart</p>
       <v-row>
         <v-col :cols="12" md="9" sm="12">
-          <v-simple-table  v-if="cart.length > 0">
+          <v-simple-table  v-if="cart.length > 0 && products.length > 0">
             <template v-slot:default>
               <thead>
                 <tr>
@@ -84,13 +84,16 @@
 
 <script>
 export default {
+  data: () => ({
+    products: []
+  }),
   computed: {
     cart() {
       return this.$store.state.session.cart;
     },
-    products() {
-      return this.$store.state.products;
-    },
+    // products() {
+    //   return this.$store.state.products;
+    // },
     purchases() {
       return this.$store.state.purchases.filter((items) => items.userId == this.$store.state.session.userId);
     },
@@ -99,6 +102,17 @@ export default {
     }
   },
   methods: {
+    getAllProducts() {
+      this.axios
+        .get("http://192.168.2.63/ecommerce-service/api/product.php?action=fetchAllProducts")
+        .then((response) => { 
+          console.log(response);
+          this.products = response.data; 
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     getProduct(id) {
       return this.products.filter((product) => product.id == id)[0];
     },
@@ -121,18 +135,27 @@ export default {
       return this.getSubTotal() + this.calculateTax() + (this.cart.length > 0? 10: 0);
     },
     proceedToBuy(){
-      this.cart.forEach((cart) => {
-        cart['product'] = this.getProduct(cart.productId)
-      });
-      var purchaseItem = {
-        items: this.cart,
-        total: this.calculateTotal().toFixed(2),
-        id: this.purchases.length + 1,
-        userId: this.userId
-      }
-      this.$store.commit('addPurchaseItem', purchaseItem);
-      this.$store.commit('clearCart');
-      this.$router.push('/confirmation');
+      // this.cart.forEach((cart) => {
+      //   cart['product'] = this.getProduct(cart.productId)
+      // });
+
+       this.axios
+        .post("http://192.168.2.63/ecommerce-service/api/order.php?action=createOrder", {
+          userId: this.$store.state.session.userId,
+          subTotal: this.getSubTotal(),
+          taxAmount: this.calculateTax(),
+          products: this.cart
+        })
+        .then((response) => { 
+          console.log(response);
+          this.$store.commit('clearCart');
+          this.$router.push('/confirmation');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      //this.$store.commit('addPurchaseItem', purchaseItem);
+      
     },
     clearCart(){
       this.$store.commit('clearCart');
@@ -143,6 +166,9 @@ export default {
       }
       // this.$store.commit('removeFromCart', id);
     }
+  },
+  created() {
+    this.getAllProducts()
   }
 }
 </script>
