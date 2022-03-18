@@ -53,7 +53,6 @@
             cols="12"
           >
             <v-text-field
-              v-model="accountDataLocale.name"
               label="Name"
               dense
               outlined
@@ -66,7 +65,6 @@
             md="6"
           >
             <v-text-field
-              v-model="accountDataLocale.email"
               label="E-mail"
               dense
               outlined
@@ -88,7 +86,7 @@
 
                 <div class="ms-3">
                   <p class="text-base font-weight-medium mb-1">
-                    Updating Profile is temporarily disabled. 
+                    Updating Profile is temporarily disabled.
                   </p>
                   <!-- <a
                     href="javascript:void(0)"
