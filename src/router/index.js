@@ -10,7 +10,7 @@ const routes = [
   },
   {
     path: '/products',
-    name: 'icons',
+    name: 'products',
     component: () => import('@/views/pages/Products.vue'),
   },
 
@@ -44,14 +44,6 @@ const routes = [
     path: '/login',
     name: 'pages-login',
     component: () => import('@/views/pages/Login.vue'),
-    meta: {
-      layout: 'blank',
-    },
-  },
-  {
-    path: '/register',
-    name: 'pages-register',
-    component: () => import('@/views/pages/Register.vue'),
     meta: {
       layout: 'blank',
     },

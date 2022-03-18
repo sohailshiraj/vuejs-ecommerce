@@ -45,7 +45,7 @@
           style="vertical-align:middle"
         >
           <span class="text--primary font-weight-semibold mb-n1">
-            {{user? user.name: ''}}
+            {{ this.$route.params.username }}
           </span>
         </div>
       </div>
@@ -79,6 +79,16 @@
       <v-divider class="my-2"></v-divider>
 
       <v-list-item link href="/login">
+        <v-list-item-icon class="me-2">
+          <v-icon size="22">
+            {{ icons.mdiLogoutVariant }}
+          </v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>Login</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+       <v-list-item link href="/login">
         <v-list-item-icon class="me-2">
           <v-icon size="22">
             {{ icons.mdiLogoutVariant }}
