@@ -2,9 +2,9 @@
   <div>
     <p class="display-1 font-weight-light pa-1" style="background: transparent">Hello! {{ this.$route.params.username }}</p>
     <v-row>
-      <v-col lg="4" sm="6" cols="12" class="align-self-start" :key="pro._id" v-for="pro in products">
+      <v-col lg="4" sm="6" cols="12" class="align-self-start" :key="pro.id" v-for="pro in products">
         <v-card>
-          <router-link :to="{ name: 'product-details', params: { id: pro._id } }">
+          <router-link :to="{ name: 'product-details', params: { id: pro.id } }">
             <v-img :src="require('../../assets/img/shop/' + pro.image)" style="height: 400px"></v-img>
           </router-link>
           <div style="display: flex; justify-content: space-between">
@@ -33,7 +33,7 @@ export default {
   methods: {
     getAllProducts() {
       this.axios
-        .get('http://localhost:5000/api/product')
+        .get('http://localhost:10962/api/product')
         .then(response => {
           console.log(response)
           this.products = response.data

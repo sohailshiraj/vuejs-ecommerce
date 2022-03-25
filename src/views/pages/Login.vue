@@ -84,13 +84,13 @@ export default {
     login() {
       if (this.email !== '' && this.password !== '') {
         this.axios
-          .get('http://localhost:5000/api/user/' +this.email)
+          .get('http://localhost:10962/api/account/' +this.email)
           .then(response => {
             console.log(response)
-            if (response.data.email === this.email && response.data.password === this.password) {
+            if (response.data[0].email === this.email && response.data[0].password === this.password) {
               this.message = null
-              this.$store.commit('setUserIdSession', response.data._id)
-              this.$router.push({name: "products", params: {username: response.data.name}});
+              this.$store.commit('setUserIdSession', response.data[0].id)
+              this.$router.push({name: "products", params: {username: response.data[0].name}});
             } else {
               this.message = 'Invalid username or password'
             }
