@@ -97,7 +97,7 @@ export default {
   methods: {
     getAllProducts() {
       this.axios
-        .get('http://localhost:5000/api/product')
+        .get('http://localhost:10962/api/product')
         .then(response => {
           console.log(response)
           this.products = response.data
@@ -130,11 +130,10 @@ export default {
     },
     proceedToBuy() {
       this.axios
-        .post('http://localhost:5000/api/order', {
+        .post('http://localhost:10962/api/productorder', {
           user_id: this.$store.state.session.userId,
           sub_total: this.getSubTotal(),
           tax_amount: this.calculateTax(),
-          products: this.cart,
           status: ("confirmed"),
         })
         .then(response => {

@@ -41,7 +41,7 @@
             <v-tab>Description</v-tab>
             <v-tab>Reviews</v-tab>
             <v-tab-item>
-              <p class="pt-10 subtitle-1 font-weight-thin">{{ product.longDescription }}</p>
+              <p class="pt-10 subtitle-1 font-weight-thin">{{ product.long_description }}</p>
             </v-tab-item>
             <v-tab-item>
               <v-list three-line="true" avatar="true">
@@ -83,15 +83,15 @@ export default {
   async created() {
     this.id = this.$route.params.id
     this.getProductDetail(this.id)
-    this.getReviewDetail(this.id)
+    this.getReviewDetail()
   },
   methods: {
     async getProductDetail(id) {
       this.axios
-        .get('http://localhost:5000/api/product/'+id)
+        .get('http://localhost:10962/api/product/'+id)
         .then(response => {
           console.log(response.data)
-          this.product = response.data;
+          this.product = response.data[0];
         })
         .catch(error => {
           console.log(error)
@@ -99,9 +99,9 @@ export default {
     },
 
 
-    async getReviewDetail(id) {
+    async getReviewDetail() {
       this.axios
-        .get('http://localhost:5000/api/review/'+id)
+        .get('http://localhost:10962/api/review/')
         .then(response => {
           console.log(response.data)
           this.rev = response.data;
@@ -110,7 +110,6 @@ export default {
           console.log(error)
         })
     },
-
 
     getDiscountedValue(price, discount) {
       return price - (price / 100) * discount
@@ -127,7 +126,7 @@ export default {
     },
     addReview(id, rating, review) {
       this.axios
-        .post('http://localhost:5000/api/review', {
+        .post('http://localhost:10962/api/review', {
           rating: rating,
           comment: review,
           user_id: this.$store.state.session.userId,
@@ -135,7 +134,7 @@ export default {
         })
         .then(response => {
           console.log(response)
-          this.getReviewDetail(id)
+          this.getReviewDetail()
         })
         .catch(error => {
           console.log(error)
